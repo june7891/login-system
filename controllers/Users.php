@@ -134,52 +134,6 @@
 
 
 
-
-    // public function resetPasswordWithConfirmation(){
-    //     //Sanitize POST data
-    //     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-
-    //     if(isset($_GET['id']) && isset($_GET['token'])){
-    //         $this->userModel->resetPasswordWithEmailConfirmation()
-    //     }
-        
-
-
-
-    //     //Init data
-    //     $data=[
-    //         'new-password' => trim($_POST['new-password']),
-    //         'repeat-new-password' => trim($_POST['repeat-new-password'])
-    //     ];
-
-    //     if(empty($data['new-password']) || empty($data['repeat-new-password'])){
-    //         flash("reset", "Please fill out all inputs");
-    //         header("location: ../reset-password.php");
-    //         exit();
-    //     }
-
-    //     if(strlen($data['new-password']) < 6){
-    //         flash("reset", "Invalid password");
-    //         redirect("../reset-password.php");
-    //     } else if($data['new-password'] !== $data['repeat-new-password']){
-    //         flash("reset", "Passwords don't match");
-    //         redirect("../reset.php");
-    //     }
-
-    //     $data['new-password'] = password_hash($data['new-password'], PASSWORD_DEFAULT);
-
-    //      //Reset password
-    //      if($this->userModel->reset($data)){
-    //         redirect("../login.php");
-    //     }else{
-    //         die("Something went wrong");
-    //     }
-
-    // }
-
-
-
     public function remind(){
         //Sanitize POST data
         $_POST = filter_input_array(INPUT_POST);
@@ -213,19 +167,42 @@
         }
 
 
-      
-    //remind password
-      
+
        
     }
 
 
 
+    public function registerAccount(){
+        //Process form
+        
+        //Sanitize POST data
+        $_POST = filter_input_array(INPUT_POST);
+        
+        $id = $_SESSION['id'];
+        //Init data
+        $data = [
+            'id'=>$id,
+            'firstname' => htmlspecialchars($_POST['firstname']),
+            'lastname' => htmlspecialchars($_POST['lastname']),
+            'phoneNumber' => htmlspecialchars($_POST['phoneNumber']),
+            'dateOfBirth' => htmlspecialchars($_POST['dateOfBirth']),
+            'address' => htmlspecialchars($_POST['address']),
+            'gender' => htmlspecialchars($_POST['gender'])
+        ];
 
+   
+    
+        if($this->userModel->registerAccount($data)){
+            redirect("../index.php");
+        }else{
+            die("Something went wrong");
+        }
+    }
 
 
     public function createUserSession($user){
-        $_SESSION['id'] = $user->usersId;
+        $_SESSION['id'] = $user->id;
         $_SESSION['username'] = $user->username;
         $_SESSION['email'] = $user->email;
         redirect("../index.php");
@@ -254,8 +231,8 @@
             case 'reset':
                 $init->reset();
                 break;
-            case 'reset-with-confirmation':
-                $init->resetPasswordWithConfirmation();
+            case 'register-account':
+                $init->registerAccount();
                 break;
             case 'remind':
                 $init->remind();

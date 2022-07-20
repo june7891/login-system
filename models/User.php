@@ -71,16 +71,7 @@ class User {
     }
 
 
-    public function resetPasswordWithEmailConfirmation($data){
-
-
-        $this->db->query('SELECT * FROM users WHERE id = ? AND reset_token = IS NOT NULL AND reset_token = :reset_token AND reset_at > DATE_SUB(NOW(), INTERVAL 30 MINUTE)');
-
-
-
-        $this->db->bind(':password', $data['new-password']);
-       
-    }
+   
 
 
     public function reset($data){
@@ -133,11 +124,36 @@ class User {
             return false;
         }
 
-
-
     }
 
+    public function registerAccount($data){
 
+        $id = $_SESSION['id'];
+
+     
+        $this->db->query("UPDATE users SET firstname = :firstname, lastname = :lastname, phoneNumber = :phoneNumber, dateOfBirth = :dateOfBirth, address = :address, gender = :gender WHERE id = $id");
+        //Bind values
+
+        
+        
+        $this->db->bind(':firstname', $data['firstname']);
+        $this->db->bind(':lastname', $data['lastname']);
+        $this->db->bind(':phoneNumber', $data['phoneNumber']);
+        $this->db->bind(':dateOfBirth', $data['dateOfBirth']);
+        $this->db->bind(':address', $data['address']);
+        $this->db->bind(':gender', $data['gender']);
+
+
+
+        print_r($data);
+        die();
+        //Execute
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 
 }

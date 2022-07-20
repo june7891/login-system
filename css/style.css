@@ -181,6 +181,7 @@ nav {
     padding: 1em;
     border-radius: 0.5em;
  }
+
  .inscription{
 
     display: flex;
@@ -316,6 +317,61 @@ input{
     
 }
 
+
+
+
+/* style account */
+
+.form-account{
+    margin: 0 10%;
+    margin-bottom: 300px;
+    padding-top: 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #41C2F4;
+    width: 80%;
+    height: 60%;
+    box-shadow: -10px 10px 2px 1px #69DC8A ;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.form-account form {
+    width: 50%;
+    
+}
+
+
+
+.modify-account {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.form-account select {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 40px;
+    font-weight: 600;
+    color: gray;
+    width: 600px;
+    height: 70px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
 /* style gallery */
 .profil{
     display: flex;
@@ -383,6 +439,9 @@ h1{
     -o-border-radius:5px ;
     box-shadow: -10px 10px 2px 1px #41C2F4;
 }
+
+
+
 button{
     background-color:#F9B532;
     margin-bottom: 20px;
@@ -429,9 +488,6 @@ button{
     
 }
 
-/* .col {
-    width: calc(33% - 80px);
-} */
 
 .card{
     display: flex;

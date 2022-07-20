@@ -34,6 +34,7 @@
             <?php else: ?>
                 <a href="reset-password.php"><li>Modifier mot de passe</li></a>
                 <a href="gallery.php"><li>Ta galérie photos</li></a>
+                <a href="account.php"><li>Ton profil</li></a>
                 <a href="./controllers/Users.php?q=logout"><li>Logout</li></a>
             <?php endif; ?>
         </ul>
