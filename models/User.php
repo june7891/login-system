@@ -74,8 +74,11 @@ class User {
    
 
 
-    public function reset($data){
-        $this->db->query('UPDATE users SET password = :password');
+    public function reset($data, $id){
+
+        
+        
+        $this->db->query("UPDATE users SET password = :password WHERE id = $id");
         //Bind values
         $this->db->bind(':password', $data['new-password']);
 
@@ -126,16 +129,16 @@ class User {
 
     }
 
-    public function registerAccount($data){
+    public function updateAccount($data){
 
-        $id = $_SESSION['id'];
 
      
-        $this->db->query("UPDATE users SET firstname = :firstname, lastname = :lastname, phoneNumber = :phoneNumber, dateOfBirth = :dateOfBirth, address = :address, gender = :gender WHERE id = $id");
+        $this->db->query("UPDATE users SET firstname = :firstname, lastname = :lastname, phoneNumber = :phoneNumber, dateOfBirth = :dateOfBirth, address = :address, gender = :gender WHERE id = :id");
         //Bind values
 
         
         
+        $this->db->bind(':id', $data['id']);
         $this->db->bind(':firstname', $data['firstname']);
         $this->db->bind(':lastname', $data['lastname']);
         $this->db->bind(':phoneNumber', $data['phoneNumber']);
@@ -143,10 +146,6 @@ class User {
         $this->db->bind(':address', $data['address']);
         $this->db->bind(':gender', $data['gender']);
 
-
-
-        print_r($data);
-        die();
         //Execute
         if($this->db->execute()){
             return true;

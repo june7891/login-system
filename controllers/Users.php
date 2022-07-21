@@ -101,8 +101,12 @@
         //Sanitize POST data
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+
+        //recup Id session
+        $id = $_SESSION['id'];
         //Init data
         $data=[
+            
             'new-password' => trim($_POST['new-password']),
             'repeat-new-password' => trim($_POST['repeat-new-password'])
         ];
@@ -124,7 +128,7 @@
         $data['new-password'] = password_hash($data['new-password'], PASSWORD_DEFAULT);
 
          //Reset password
-         if($this->userModel->reset($data)){
+         if($this->userModel->reset($data, $id)){
             redirect("../login.php");
         }else{
             die("Something went wrong");
@@ -173,7 +177,7 @@
 
 
 
-    public function registerAccount(){
+    public function updateAccount(){
         //Process form
         
         //Sanitize POST data
@@ -193,7 +197,7 @@
 
    
     
-        if($this->userModel->registerAccount($data)){
+        if($this->userModel->updateAccount($data)){
             redirect("../index.php");
         }else{
             die("Something went wrong");
@@ -231,8 +235,8 @@
             case 'reset':
                 $init->reset();
                 break;
-            case 'register-account':
-                $init->registerAccount();
+            case 'update-account':
+                $init->updateAccount();
                 break;
             case 'remind':
                 $init->remind();

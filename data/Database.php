@@ -9,8 +9,8 @@
 class Database {
     private $host = 'localhost';
     private $user = 'root';
-    private $pass = 'afpa33';
-    private $dbname = 'espace_admin';
+    private $pass = '';
+    private $dbname = 'espace_user';
 
     //Will be the PDO object
     private $db;
