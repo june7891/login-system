@@ -1,7 +1,4 @@
-<?php 
-    include_once 'header.php';
-    include_once './helpers/session_helper.php';
-?>
+<?php ob_start();?>
 
 <h1>Deviens un triper !</h1>
 
@@ -9,8 +6,8 @@
 
 <div class="form">
 
-    <form method="post" action="./controllers/Users.php">
-        <?php flash('register') ?>
+    <form method="post" action="<?= URL ?>inscription">
+    <?php flash('register') ?>
         <input type="hidden" name="type" value="register">
         <input type="text" name="username" placeholder="pseudo">
         <input type="text" name="email" placeholder="email">
@@ -18,9 +15,13 @@
         <input type="password" name="confirm_password" placeholder="confirme ton mot de passe">
         <p class="cross"><input class="check" type="checkbox" name="check" id="">recevoir la newsletter</p>
         <button type="submit" name="submit">s'inscrire</button>
-        <p class="connection">déjà un compte ? <a href="login.php">Se connecter</a></p>
+        <p class="connection">déjà un compte ? <a href="<?= URL ?>login">Se connecter</a></p>
     </form>
 </div>
-<?php 
-    include_once 'footer.php'
-?>
+
+
+
+<?php
+$content = ob_get_clean();
+$titre = "Sign up";
+require "views/commons/template.php";
