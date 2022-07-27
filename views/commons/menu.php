@@ -12,15 +12,15 @@
 
         <ul>
         <?php if(!Security::verifAccessSession()) :?>
-                <a href="<?= URL?>/login">Login</a>
-
+                <a href="<?= URL?>login"><li>Login</li></a>
+                <a href="<?= URL?>signup"><li>Sign Up</li></a>
                 <?php else :?>
 
           
-                <a href="<?= URL?>login"><li>Sign Up</li></a>
-                <a href="<?= URL?>changePassword"><li>Modifier mot de passe</li></a>
+                
+                <a href="<?= URL?>remindPassword"><li>Modifier mot de passe</li></a>
                 <a href="<?= URL?>gallery/show"><li>Ta galérie photos</li></a>
-                <a href="<?= URL?>account"><li>Ton profil</li></a>
+                <a href="<?= URL?>account/show"><li>Ton profil</li></a>
                 <a href="<?= URL?>logout"><li>Logout</li></a>
             <?php endif; ?>
         </ul>
@@ -30,7 +30,7 @@
             <img src="./images/logo.svg" alt="">
         </div>
         <div class="login">
-            <a href="login.php"><img src="./images/login.svg" alt=""></a>
+            <a href="<?= URL?>account/show"><img src="./images/login.svg" alt=""></a>
             
         </div>
     </nav>

@@ -34,9 +34,19 @@ try{
             break;  
             case "homepage": $userController->getUserHomepage();
             break;  
-            case "account": $userController->getUserAccount();
+            case "account": 
+            switch($url[1]){
+                case "show" : $userController->getUserAccount();
+                case "updateUsernameEmail": $userController->updateUsernameEmail();
+                break;
+                case "updateAccount": $userController->updateAccount();
+                break; 
+            }
+
             break;  
-            case "remindPassword": $userController->remindPassword();
+            case "remindPassword": $userController->remindPasswordTemplate();
+            break;  
+            case "remindPasswordValidation": $userController->remindPasswordValidation();
             break;  
             case "gallery": 
                 switch($url[1]){

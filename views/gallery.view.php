@@ -1,5 +1,6 @@
 <?php ob_start();?>
 
+
 <div class="profil">
     <h1>Ta gallerie </br>
         de souvenirs</h1>
@@ -11,7 +12,7 @@
 </div>
 <div class="partage">
     <h1>Partage tes photos !</h1>
-    <p><button type="submit"><a href="upload-images.php">Envoyer</a></button></p>
+    <p><button type="submit"><a href="<?= URL ?>gallery/add">Envoyer</a></button></p>
 </div>
 
 
@@ -19,18 +20,19 @@
 
     <div class="container">
 
-
+    <?php foreach($infoImage as $image) : ?>
+     
         <div class="col">
             <div class="card">
                 <div class="photosouvenir">
-                    <img src="https://picsum.photos/200/300" alt="" style="width:100%; height:100%">
+                    <img src="../public/images/" style="width:100%; height:100%">
                 </div>
-                <div class="lieusouvenir">ville</div>
-                <a href="modifier-gallery.php?id=<?=$image['id']; ?>"> <img src="./images/modify.svg" alt=""></a>
-                <a href="delete-image.php?id=<?=$image['id']; ?>"> <img src="./images/croix.svg" alt=""></a>
+                <div class="lieusouvenir"></div>
+                <a href=">"> <img src="/images/modify.svg" alt=""></a>
+                <a href=""> <img src="/images/croix.svg" alt=""></a>
             </div>
         </div>
-
+        <?php endforeach; ?>
 
     </div>
 </section>

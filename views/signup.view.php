@@ -1,6 +1,6 @@
 <?php ob_start();?>
 
-<h1>Deviens un triper !</h1>
+
 
 
 
@@ -23,5 +23,5 @@
 
 <?php
 $content = ob_get_clean();
-$titre = "Sign up";
+$titre = "Deviens un triper !";
 require "views/commons/template.php";

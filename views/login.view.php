@@ -2,7 +2,7 @@
 
 
 
-<h1>Bon retour, Triper !</h1>
+
 
 
     <div class="form">
@@ -26,5 +26,5 @@
 
 <?php
 $content = ob_get_clean();
-$titre = "Login";
+$titre = "Bon retour, Triper !";
 require "views/commons/template.php";

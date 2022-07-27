@@ -11,15 +11,17 @@ class UserController{
         $this->userManager = new UserManager();
     }
 
-    public function getLoginPage(){
-        require_once "views/login.view.php";
-    }
+
+    // création compte utilisateur/inscription
+
 
 
     public function getRegisterUserPage() {
         require_once "views/signup.view.php";
 
     }
+
+
 
     public function registerUser() {
         
@@ -64,16 +66,37 @@ class UserController{
             header('Location: '.URL."login");
         }
     
-       
-
         
     }
 
 
+    //Mettre à jour le profil utilisateur
 
+    public function getUserAccount(){
+
+        if(Security::verifAccessSession()){
+            require "views/account.view.php";
+        }else {
+         
+            header('Location: '.URL."login");
+        }
+        
+        
+    }
+
+    public function updateUsernameEmail() {
+        echo "modifier le pseudo ou mot de passe";
+    }
    
 
 
+
+    // connexion/login
+
+    
+    public function getLoginPage(){
+        require_once "views/login.view.php";
+    }
 
 
     public function connection(){
@@ -90,11 +113,11 @@ class UserController{
                 $_SESSION['access'] = "loggedUser";
                 Security::createUserSession($loggedInUser);
             }else{
-                flash("login", "pb avec findUser");
+                flash("login", "Pseudo ou mot de passe incorrect!");
                 header('Location: '.URL."login");
             }
         }else{
-            flash("login", "Ppb avec login()");
+            flash("login", "Pseudo/email n'existe pas");
             header('Location: '.URL."login");
         }
     }else {
@@ -104,6 +127,7 @@ class UserController{
     }
     
 
+    // logout
 
     public function deconnection(){
        session_destroy();
@@ -112,9 +136,16 @@ class UserController{
        
     }
 
+
+    // page d'accueil utilisateur
+
+
+
     public function getUserHomepage(){
 
         if(Security::verifAccessSession()){
+            $username = $_SESSION['username'];
+           
             require "views/homepage.view.php";
         }else {
             flash('login', 'pb avec getUserHomepage');
@@ -123,19 +154,23 @@ class UserController{
         
         
     }
-    public function getUserAccount(){
+ 
 
-        if(Security::verifAccessSession()){
-            require "views/account.view.php";
-        }else {
-         
-            header('Location: '.URL."login");
-        }
-        
-        
+
+    // mot de passe oublié
+
+    public function remindPasswordTemplate() {
+        require "views/remindPassword.view.php";
     }
 
+
+
+    public function remindPasswordValidation() {
+        require "views/messageValidationPassword.view.php";
+    }
+ 
     
 
-  
 }
+
+

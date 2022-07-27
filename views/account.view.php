@@ -21,8 +21,8 @@
 </div>
 
 <div class="partage">
-    <h1>Partage tes photos !</h1>
-    <p><button type="submit"><a href="upload-images.php">Envoyer</a></button></p>
+    <h1>Fais ta propre carte de Triper!</h1>
+    <p><button type="submit"><a href="<?= URL ?>account/carteTriper">Personnaliser</a></button></p>
 </div>
 
 
@@ -32,8 +32,8 @@
 
     <div class="form-account">
 
-        <form action="./controllers/Users.php" method="post" class="pseudo-email">
-            <input type="hidden" name="type" value="modify-email-username">
+        <form action="<?= URL ?>account/updateUsernameEmail" method="post" class="pseudo-email">
+         
             <label for="pseudo">pseudo</label>
             <input type="text" name="pseudo" id="pseudo" placeholder="<?=$username?>">
             <label for="email">email</label>
@@ -41,10 +41,8 @@
             <button type="submit" name="submit">Modifier</button>
         </form>
 
-        <form action="./controllers/Users.php" method="post">
-            <input type="hidden" name="type" value="update-account">
-
-
+        <form action="<?= URL ?>gallery/updateAccount" method="post">
+         
             <label for="lastname">nom</label>
             <input type="text" name="lastname" id="lastname">
 
@@ -69,20 +67,19 @@
                 <option value="autre">Autre</option>
 
             </select>
-
+                <button type="submit">Enregister</button>
 
             <div class="modify-account">
-                <p>mot de passe</p><a href="change-password.php">modifier</a>
-                <p>gallerie photo perso : </p> <a href="gallery.php"><img src="" alt="">picto appareil photo</a>
-                <p>préférences </p> <a href="preferences.php">modifier</a>
-
-                <button type="submit">Enregister</button>
+                <p>mot de passe<a href="<?= URL ?>remindPassword"> modifier</a></p>
+                <p>gallerie photo perso : <a href="<?= URL ?>gallery/show"><img src="../images/photos-non-3d.svg" alt=""></a> </p>
+                <p>préférences <a href="<?= URL ?>account/preferences">modifier</a></p> 
+                <a href="delete-account.php">supprimmer mon compte</a>
             </div>
 
 
         </form>
 
-        <a href="delete-account.php">supprimmer mon compte</a>
+      
     </div>
 </div>
 
@@ -90,5 +87,5 @@
 
 <?php
 $content = ob_get_clean();
-$titre = "Login";
+$titre = "";
 require "views/commons/template.php";

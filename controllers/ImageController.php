@@ -14,15 +14,28 @@ class ImageController{
 
    public function showImages(){
     if(Security::verifAccessSession()){
-        $images = $this->imageManager->getImages();
-  
-        require "views/gallery.view.php";
+        $user_id = $_SESSION['id'];
+       
+        $tabIdImages= $this->imageManager->getImageIdByUserId($user_id);
+
+        foreach($tabIdImages as $id_image) {
+         $infoImage = $this->imageManager->getImageInfo($id_image);
+        //  echo '<pre>';
+        // print_r($infoImage);
+        // echo "</pre>";
+        // echo $infoImage["image_title"]; 
+        };
+ require "views/gallery.view.php";
+        
     }else {
         throw new Exception("Access forbiden");
     }
    }
   
-   public function deleteProduct(){
+
+
+
+   public function deleteImage(){
     if(Security::verifAccessSession()){
         $id_product = (int)Security::secureHTML($_POST['id']);
         $image = $this->imageManager->getImageProduct($id_product);
@@ -35,18 +48,17 @@ class ImageController{
     }
    }      
 
-   public function addProductTemplate(){
+   public function addImageTemplate(){
     if(Security::verifAccessSession()){
-        $categoriesManager = new CategoriesManager();
-        $categories = $categoriesManager->getCategory();
-       
-        require_once "views/addProduct.view.php";
+
+        require_once "views/addImage.view.php";
     }else {
         throw new Exception("Access forbiden");
     }
    }
-   public function addProduct(){
+   public function addImage(){
     if(Security::verifAccessSession()){
+        $id_user =  (int)Security::secureHTML($_POST['id']);
         $title = Security::secureHTML($_POST['title']);
         $image="";
         if($_FILES['image']['size'] > 0){
@@ -54,26 +66,17 @@ class ImageController{
             $image = ajoutImage($_FILES['image'],$repertoire);
         }
         
-        $description = Security::secureHTML($_POST['description']);
-        $price = Security::secureHTML($_POST['price']);
       
-        $id_product = $this->imageManager->AddDbProduct($image, $title, $description, $price);
+      
+        $id_image = $this->imageManager->addDbImage($title, $image);
 
-        $categoriesManager = new CategoriesManager();
-        if(!empty($_POST['category-1']))
-            $categoriesManager->addCategoryToProduct($id_product);
-        if(!empty($_POST['category-2']))
-            $categoriesManager->addCategoryToProduct($id_product);
-        if(!empty($_POST['category-3']))
-            $categoriesManager->addCategoryToProduct($id_product);
-        if(!empty($_POST['category-4']))
-            $categoriesManager->addCategoryToProduct($id_product);
-        if(!empty($_POST['category-5']))
-            $categoriesManager->addCategoryToProduct($id_product);
-        if(!empty($_POST['category-6']))
-            $categoriesManager->addCategoryToProduct($id_product);
+        $this->imageManager->addImageToUser($id_user, $id_image);
+
+            header('Location: '.URL.'gallery/show'); 
+
+     
         
-        header('Location: '.URL.'back/catalogue/show');
+       
 
 }else {
 throw new Exception("Access forbiden");

@@ -350,7 +350,12 @@ input{
     align-items: center;
     font-size: 20px;
     font-weight: 600;
+    margin-right: 50px;
 
+}
+
+.modify-account p {
+    margin-right: 50px;
 }
 
 .form-account select {
