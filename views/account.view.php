@@ -41,8 +41,10 @@
             <button type="submit" name="submit">Modifier</button>
         </form>
 
-        <form action="<?= URL ?>gallery/updateAccount" method="post">
+        <form action="<?= URL ?>account/updateAccount/<?= $_SESSION['id'] ?>" method="post">
          
+        <!-- <input type="hidden" name="id_user" value="<?= $_SESSION['id'] ?>" /> -->
+        
             <label for="lastname">nom</label>
             <input type="text" name="lastname" id="lastname">
 
@@ -67,8 +69,14 @@
                 <option value="autre">Autre</option>
 
             </select>
+           
+            <label for="image">photo de profil</label>
+
+                 <input type='file' name='image' multiple />
                 <button type="submit">Enregister</button>
 
+
+                
             <div class="modify-account">
                 <p>mot de passe<a href="<?= URL ?>remindPassword"> modifier</a></p>
                 <p>gallerie photo perso : <a href="<?= URL ?>gallery/show"><img src="../images/photos-non-3d.svg" alt=""></a> </p>

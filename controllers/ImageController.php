@@ -12,36 +12,43 @@ class ImageController{
         $this->imageManager = new ImageManager();
     }
 
+
+
    public function showImages(){
+
     if(Security::verifAccessSession()){
         $user_id = $_SESSION['id'];
-       
-        $tabIdImages= $this->imageManager->getImageIdByUserId($user_id);
+      
+        $tabImages = $this->imageManager->getImages($user_id);  
 
-        foreach($tabIdImages as $id_image) {
-         $infoImage = $this->imageManager->getImageInfo($id_image);
-        //  echo '<pre>';
-        // print_r($infoImage);
-        // echo "</pre>";
-        // echo $infoImage["image_title"]; 
-        };
- require "views/gallery.view.php";
+        // foreach($tabImages as $image){
+        //           echo '<pre>';
+        //    print_r($image);
+        //    echo '</pre>';
+        // }
+
+       
+
+    require_once "views/gallery.view.php";
         
     }else {
         throw new Exception("Access forbiden");
     }
-   }
-  
+   
+}
+ 
+
+
 
 
 
    public function deleteImage(){
     if(Security::verifAccessSession()){
-        $id_product = (int)Security::secureHTML($_POST['id']);
-        $image = $this->imageManager->getImageProduct($id_product);
+        $id_image = (int)Security::secureHTML($_POST['image_id']);
+        $image = $this->imageManager->getImage($id_image);
         unlink("public/images/".$image);
-        $this->imageManager->deleteDbProduct($id_product);
-        header('Location: '.URL.'back/catalogue/show');
+        $this->imageManager->deleteDbImage($id_image);
+        header('Location: '.URL.'gallery/show');
     
     }else {
         throw new Exception("Access forbiden");
@@ -68,9 +75,8 @@ class ImageController{
         
       
       
-        $id_image = $this->imageManager->addDbImage($title, $image);
+        $id_image = $this->imageManager->addDbImage($image, $title, $id_user);
 
-        $this->imageManager->addImageToUser($id_user, $id_image);
 
             header('Location: '.URL.'gallery/show'); 
 
@@ -83,21 +89,12 @@ throw new Exception("Access forbiden");
 }
 }
 
-public function modification($id_product){
+public function modification($id_image){
     if(Security::verifAccessSession()){
-        $categoriesManager = new CategoriesManager();
-        $categories = $categoriesManager->getCategory();
-
-        $lignesProduct= $this->imageManager->getProduct((int)Security::secureHTML($id_product));
+      
+        $image= $this->imageManager->getImageInfo((int)Security::secureHTML($id_image));
         
-       $tabCategory = [];
-
-       foreach($lignesProduct as $category){
-        $tabCategory[] = $category['id'];
-       }
-       
-
-        require_once "views/productModification.view.php";
+        require_once "views/imageModification.view.php";
     } else {
         throw new Exception("Vous n'avez pas le droit d'être là ! ");
     }
@@ -106,26 +103,23 @@ public function modification($id_product){
 
     public function modificationValidation(){
         if(Security::verifAccessSession()){
-            $id_product = Security::secureHTML($_POST['id']);
-            $image = "";
-            $title = Security::secureHTML($_POST['title']);
+            $id_image = (int)Security::secureHTML($_POST['image_id']);
+            $imageName= $this->imageManager->getImage($id_image);
+            if($_FILES['image']['size'] > 0){
+            unlink("public/images/".$image);
+            $repertoire = "public/images/";
+            $imageName = ajoutImage($_FILES['image'],$repertoire);
+
+        }
+       
+            $imageTitle = Security::secureHTML($_POST['title']);
          
-            $description = Security::secureHTML($_POST['description']);
-            $price = Security::secureHTML($_POST['price']);
-            $category = Security::secureHTML($_POST['category']);
+            $this->imageManager->updateImage($id_image, $imageName, $imageTitle);
+
             
-            $this->imageManager->updateProduct($id_product, $image, $title, $description, $price, $category);
-        
-            $category = [
-                1 => !empty($_POST['category-1']),
-                2 => !empty($_POST['category-1']),
-                3 => !empty($_POST['category-1']),
-                4 => !empty($_POST['category-1']),
-                5 => !empty($_POST['category-1']),
-                6 => !empty($_POST['category-1'])
-            ];
-    
-            header('Location: '.URL.'back/catalogue/show');
+
+         
+            header('Location: '.URL.'gallery/show');
         } else {
             throw new Exception("Vous n'avez pas le droit d'être là ! ");
         }

@@ -527,6 +527,31 @@ button{
 }
 
 
+.btn-delete {
+    background: url(../images/croix.svg);
+    background-repeat: no-repeat;
+    border: 0;
+    height: 27px;
+    width: 27px;
+    cursor: pointer;
+}
+
+.btn-modify {
+    background: url(../images/modify.svg);
+    background-repeat: no-repeat;
+    border: 0;
+    height: 43px;
+    width: 40px;
+    cursor: pointer;
+}
+
+
+.buttons {
+    display: inline;
+   
+    padding-top: 10px;
+}
+
 
 
 /*style footer*/

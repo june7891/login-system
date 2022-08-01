@@ -29,6 +29,7 @@ class UserController{
         $email = Security::secureHTML($_POST['email']);
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $confirm_password = Security::secureHTML($_POST['confirm_password']);
+        
 
 
         //verifie si tous les champs sont renseignés
@@ -62,7 +63,7 @@ class UserController{
             flash("register", "Pseudo ou mot de passe déjà pris");
             header('Location: '.URL."signup");
         } else {
-            $user = $this->userManager->registerUserDb($username, $email, $password); 
+            $user = $this->userManager->registerUserDb($username, $email, $password, $account_created_at); 
             header('Location: '.URL."login");
         }
     
@@ -83,6 +84,42 @@ class UserController{
         
         
     }
+
+
+    public function updateAccount($id_user){
+
+        if(Security::verifAccessSession()){
+            $id_user = (int)Security::secureHTML($_POST['id_user']);
+
+            $firstname = Security::secureHTML($_POST['firstname']);
+            $lastname = Security::secureHTML($_POST['lastname']);
+            $phoneNumber = Security::secureHTML($_POST['phoneNumber']);
+            $dateOfBirth = Security::secureHTML($_POST['dateOfBirth']);
+            $address = Security::secureHTML($_POST['address']);
+            $gender = Security::secureHTML($_POST['gender']);
+
+
+
+            $profilePhoto="";
+            if($_FILES['image']['size'] > 0){
+                $repertoire = "public/images/";
+                $profilePhoto = ajoutImage($_FILES['image'],$repertoire);
+            }
+         
+            $this->userManager->updateDbAccount($id_user, $firstname, $lastname, $phoneNumber, $dateOfBirth, $address, $gender, $profilePhoto);
+
+            
+
+         
+            header('Location: '.URL.'gallery/show');
+        } else {
+            throw new Exception("Vous n'avez pas le droit d'être là ! ");
+        }
+
+    }
+
+
+
 
     public function updateUsernameEmail() {
         echo "modifier le pseudo ou mot de passe";
@@ -144,7 +181,10 @@ class UserController{
     public function getUserHomepage(){
 
         if(Security::verifAccessSession()){
-            $username = $_SESSION['username'];
+            //$username = $_SESSION['username'];
+           $user =  $this->userManager->getUserByid($_SESSION['id']);
+          
+           
            
             require "views/homepage.view.php";
         }else {

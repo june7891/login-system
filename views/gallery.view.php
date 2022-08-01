@@ -20,16 +20,40 @@
 
     <div class="container">
 
-    <?php foreach($infoImage as $image) : ?>
+    <?php foreach($tabImages as $image) : ?>
+    
      
         <div class="col">
             <div class="card">
                 <div class="photosouvenir">
-                    <img src="../public/images/" style="width:100%; height:100%">
+
+                  <img src="../public/images/<?php echo $image['image_name']?>" style="width:100%; height:100%">
+        
                 </div>
-                <div class="lieusouvenir"></div>
-                <a href=">"> <img src="/images/modify.svg" alt=""></a>
-                <a href=""> <img src="/images/croix.svg" alt=""></a>
+                  
+
+                <div class="lieusouvenir"><?php echo $image['image_title']?></div>
+
+                <div class="buttons">
+                     <form method="post" action="<?= URL ?>gallery/validationSuppression"
+                onSubmit="return confirm('Voulez-vous vraiment supprimer ?');">
+                <input type="hidden" name="image_id" value="<?= $image['image_id'] ?>" />
+                <input type="submit" value="" class="btn-delete">
+                    </form>
+
+                <form method="post" action="<?= URL ?>gallery/modification/<?=$image['image_id']?>">
+                <input type="hidden" name="image_id" value="<?= $image['image_id'] ?>" />
+                <input type="submit" value="" class="btn-modify">
+                </form>
+
+
+                </div>
+               
+
+               
+           
+
+      
             </div>
         </div>
         <?php endforeach; ?>
