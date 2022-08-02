@@ -73,7 +73,7 @@ class UserManager extends Model{
 
 
    public function updateDbAccount($id_user, $firstname, $lastname, $phoneNumber, $dateOfBirth, $address, $gender, $profilePhoto){
-    $req ="UPDATE users SET firstname = :firstname, lastname = :lastname = :lastname, phoneNumber = :phoneNumber, dateOfBirth = :dateOfBirth, address = :address, gender = :gender, profilePhoto = :profilePhoto WHERE id= :id_user";
+    $req ="UPDATE users SET firstname = :firstname, lastname = :lastname, phoneNumber = :phoneNumber, dateOfBirth = :dateOfBirth, address = :address, gender = :gender, profilePhoto = :profilePhoto WHERE id= :id_user";
     $stmt = $this->getConnexion()->prepare($req);
 
     $stmt->bindValue(":id_user",$id_user,PDO::PARAM_INT);

@@ -76,6 +76,7 @@ class UserController{
     public function getUserAccount(){
 
         if(Security::verifAccessSession()){
+            $user= $this->userManager->getUserById($_SESSION['id']);
             require "views/account.view.php";
         }else {
          
@@ -85,19 +86,27 @@ class UserController{
         
     }
 
+    public function getUpdateAccountTemplate() {
+        if(Security::verifAccessSession()){
+            $user= $this->userManager->getUserById($_SESSION['id']);
+            require "views/modify-account.view.php";
+        }else {
+         
+            header('Location: '.URL."login");
+        }
+    }
+
 
     public function updateAccount($id_user){
 
         if(Security::verifAccessSession()){
             $id_user = (int)Security::secureHTML($_POST['id_user']);
-
             $firstname = Security::secureHTML($_POST['firstname']);
             $lastname = Security::secureHTML($_POST['lastname']);
             $phoneNumber = Security::secureHTML($_POST['phoneNumber']);
             $dateOfBirth = Security::secureHTML($_POST['dateOfBirth']);
             $address = Security::secureHTML($_POST['address']);
             $gender = Security::secureHTML($_POST['gender']);
-
 
 
             $profilePhoto="";
@@ -107,11 +116,14 @@ class UserController{
             }
          
             $this->userManager->updateDbAccount($id_user, $firstname, $lastname, $phoneNumber, $dateOfBirth, $address, $gender, $profilePhoto);
+          
+
+            $user= $this->userManager->getUserById($_SESSION['id']);
 
             
-
-         
-            header('Location: '.URL.'gallery/show');
+            require "views/account.view.php";
+        
+            //header('Location: '.URL.'account/show');
         } else {
             throw new Exception("Vous n'avez pas le droit d'être là ! ");
         }
@@ -183,12 +195,9 @@ class UserController{
         if(Security::verifAccessSession()){
             //$username = $_SESSION['username'];
            $user =  $this->userManager->getUserByid($_SESSION['id']);
-          
-           
-           
+              
             require "views/homepage.view.php";
         }else {
-            flash('login', 'pb avec getUserHomepage');
             header('Location: '.URL."login");
         }
         

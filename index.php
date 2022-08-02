@@ -39,6 +39,8 @@ try{
                 case "show" : $userController->getUserAccount();
                 case "updateUsernameEmail": $userController->updateUsernameEmail();
                 break;
+                case "modifyAccount": $userController->getUpdateAccountTemplate();
+                break; 
                 case "updateAccount": $userController->updateAccount($url[2]);
                 break; 
             }

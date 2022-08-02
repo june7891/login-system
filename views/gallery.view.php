@@ -5,7 +5,11 @@
     <h1>Ta gallerie </br>
         de souvenirs</h1>
     <div class="profil-photo">
-        <div class="photouser"></div>
+        <div class="photouser"><img src="<?php if (!empty($user['profilePhoto'])) {?>
+             ../public/images/<?php echo $user['profilePhoto'];
+        } else {?>https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png
+
+        <?php } ?>" alt="" style="width:100%; height:100%; border-radius: 15px"></div>
         <div class="pseudouser"><?php if(isset($_SESSION['username'])) {
                 echo explode(" ", $_SESSION['username'])[0];} ?></div>
     </div>
@@ -27,7 +31,7 @@
             <div class="card">
                 <div class="photosouvenir">
 
-                  <img src="../public/images/<?php echo $image['image_name']?>" style="width:100%; height:100%">
+                  <img src="../public/images/<?php echo $image['image_name']?>" style="width:100%; height:100%; border-radius: 15px">
         
                 </div>
                   

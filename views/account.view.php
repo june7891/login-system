@@ -15,7 +15,20 @@
 <div class="profil">
     <h1>Ton profil</h1>
     <div class="profil-photo">
-        <div class="photouser"></div>
+        <div class="photouser"> <img src="<?php if (!empty($user['profilePhoto'])) {?>
+             ../public/images/<?php echo $user['profilePhoto'];
+        } else {?>https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png
+
+        <?php } ?>" alt="" style="width:100%; height:100%; border-radius: 10px">
+       
+
+           
+      
+        </div>
+            
+        
+        
+        
         <div class="pseudouser"><?=$username?></div>
     </div>
 </div>
@@ -41,41 +54,35 @@
             <button type="submit" name="submit">Modifier</button>
         </form>
 
-        <form action="<?= URL ?>account/updateAccount/<?= $_SESSION['id'] ?>" method="post">
-         
-        <!-- <input type="hidden" name="id_user" value="<?= $_SESSION['id'] ?>" /> -->
-        
-            <label for="lastname">nom</label>
-            <input type="text" name="lastname" id="lastname">
 
-            <label for="firstname">prénom</label>
-            <input type="text" name="firstname" id="firstname">
+
+        <form action="<?= URL ?>account/modifyAccount/<?= $_SESSION['id'] ?>" method="post" enctype = 'multipart/form-data'>
+         
+        <input type="hidden" name="id_user" value="<?= $_SESSION['id'] ?>" />
+        
+            <label for="lastname">nom :</label>
+            <p><?php echo $user['lastname']?></p>
+
+            <label for="firstname">prénom :</label>
+            <p><?php echo $user['firstname']?></p>
 
             <label for="phoneNumber">téléphone</label>
-            <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"
-                placeholder="xx-xx-xx-xx-xx">
+            <p><?php echo $user['phoneNumber']?></p>
 
             <label for="dateOfBirth">date de naissance</label>
-            <input type="date" name="dateOfBirth" id="dateOfBirth">
+            <p><?php echo $user['dateOfBirth']?></p>
 
             <label for="address">adresse</label>
-            <input type="text" name="address" id="address">
+            <p><?php echo $user['address']?></p>
 
             <label for="gender">genre</label>
-            <select name="gender" id="gender">
-                <option value="">--Choisir--</option>
-                <option value="homme">Homme</option>
-                <option value="femme">Femme</option>
-                <option value="autre">Autre</option>
-
-            </select>
+            <p><?php echo $user['gender']?></p>
            
             <label for="image">photo de profil</label>
+            <p><img src="../public/images/<?php echo $user['profilePhoto']?>" alt="" style="width:50px; height:50px; border-radius: 10px"> </p>
 
-                 <input type='file' name='image' multiple />
-                <button type="submit">Enregister</button>
-
-
+            <button type="submit">Modifier</button>
+          
                 
             <div class="modify-account">
                 <p>mot de passe<a href="<?= URL ?>remindPassword"> modifier</a></p>
@@ -84,8 +91,8 @@
                 <a href="delete-account.php">supprimmer mon compte</a>
             </div>
 
-
-        </form>
+         </form>
+       
 
       
     </div>

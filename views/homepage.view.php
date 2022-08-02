@@ -3,12 +3,13 @@
 
 <h1>Bienvenue, <?=$user['username']?> !</h1>
 
- <h2>Voici le profil de <?= $user['lastname'] . $user['firstname']; ?></h2>
+ <h2>Voici le profil de <?= $user['lastname'] ." ". $user['firstname']; ?></h2>
   <div>Quelques informations sur vous : </div>
     <ul>
-      <li>Votre id est : <?= $_SESSION['id'] ?></li>
-      <li>Votre mail est : <?= $_SESSION['email']?></li>
-      <li>Votre compte a été crée le : <?= $user['account_created_at'] ?></li>
+      <li>Ton id est : <?= $user['id'] ?></li>
+      <li>Ton mail est : <?= $user['email']?></li>
+      <li>Ton compte a été crée le : <?= $user['account_created_at'] ?></li>
+      <a href="<?= URL ?>account/show">Modifier</a>
     </ul>
 
 <?php

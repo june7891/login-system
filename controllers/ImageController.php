@@ -2,14 +2,18 @@
 require_once "controllers/Security.class.php";
 require_once "utils/functions.php";
 require_once "models/imageManager.php";
+require_once "models/userManager.php";
 
 
 class ImageController{
     private $imageManager;
+    private $userManager;
     
     public function __construct()
     {
         $this->imageManager = new ImageManager();
+        $this->userManager = new UserManager();
+        
     }
 
 
@@ -27,7 +31,7 @@ class ImageController{
         //    echo '</pre>';
         // }
 
-       
+        $user= $this->userManager->getUserById($_SESSION['id']);
 
     require_once "views/gallery.view.php";
         
