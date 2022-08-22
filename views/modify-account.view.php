@@ -20,24 +20,24 @@
         <input type="hidden" name="id_user" value="<?= $_SESSION['id'] ?>" />
         
             <label for="lastname">nom</label>
-            <input type="text" name="lastname" id="lastname" placeholder="<?= $user['lastname'] ?>">
+            <input type="text" name="lastname" id="lastname" value="<?= $user['lastname'] ?>">
 
             <label for="firstname">prénom</label>
-            <input type="text" name="firstname" id="firstname" placeholder="<?= $user['firstname'] ?>" >
+            <input type="text" name="firstname" id="firstname" value="<?= $user['firstname'] ?>" >
 
             <label for="phoneNumber">téléphone</label>
             <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"
-            placeholder="<?= $user['phoneNumber'] ?>">
+            value="<?= $user['phoneNumber'] ?>">
 
             <label for="dateOfBirth">date de naissance</label>
-            <input type="date" name="dateOfBirth" id="dateOfBirth"?>
+            <input type="date" name="dateOfBirth" id="dateOfBirth" value="<?= $user['dateOfBirth'] ?>">
 
             <label for="address">adresse</label>
-            <input type="text" name="address" id="address" placeholder="<?= $user['address'] ?>" >
+            <input type="text" name="address" id="address" value="<?= $user['address'] ?>" >
 
             <label for="gender">genre</label>
             <select name="gender" id="gender">
-                <option value="">--Choisir--</option>
+                <option value="<?= $user['gender'] ?>"></option>
                 <option value="homme">Homme</option>
                 <option value="femme">Femme</option>
                 <option value="autre">Autre</option>
@@ -45,7 +45,7 @@
             </select>
            
             <label for="image">photo de profil</label>
-            <img src="../../public/images/<?php echo $user['profilePhoto']?>" alt="" style="width:100px; height:100px; border-radius: 10px">
+            <img src="<?= URL ?>public/images/<?php echo $user['profilePhoto']?>" alt="" style="width:100px; height:100px; border-radius: 10px">
             <input src ="" type='file' name='image' multiple />
 
 

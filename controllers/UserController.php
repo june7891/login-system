@@ -109,7 +109,7 @@ class UserController{
             $gender = Security::secureHTML($_POST['gender']);
 
 
-            $profilePhoto="";
+            $profilePhoto=$this->userManager->getProfilePhoto($id_user);
             if($_FILES['image']['size'] > 0){
                 $repertoire = "public/images/";
                 $profilePhoto = ajoutImage($_FILES['image'],$repertoire);
@@ -118,7 +118,7 @@ class UserController{
             $this->userManager->updateDbAccount($id_user, $firstname, $lastname, $phoneNumber, $dateOfBirth, $address, $gender, $profilePhoto);
           
 
-            $user= $this->userManager->getUserById($_SESSION['id']);
+            $user= $this->userManager->getUserById($id_user);
 
             
             require "views/account.view.php";

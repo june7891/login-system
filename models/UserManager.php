@@ -4,9 +4,6 @@ require_once "models/Model.php";
 class UserManager extends Model{
 
 
-
-
-
     public function registerUserDb($username, $email, $password, $account_created_at){
     $req = "INSERT INTO users (username, password, email, account_created_at) 
     VALUES (:username, :password, :email, NOW())";
@@ -61,8 +58,6 @@ class UserManager extends Model{
     public function login($nameOrEmail, $password){
         $user = $this->findUserByEmailOrUsername($nameOrEmail, $nameOrEmail);
 
-      
-
         $hashedPassword = $user->password;
         if(password_verify($password, $hashedPassword)){
             return $user;
@@ -70,6 +65,20 @@ class UserManager extends Model{
             return false;
         }
     }
+
+
+    public function getProfilePhoto($id_user){
+        $req = "SELECT profilePhoto FROM users WHERE id = :id_user";
+        $statement = $this->getConnexion()->prepare($req);
+        $statement->bindValue(":id_user",$id_user,PDO::PARAM_INT);
+        $statement->execute();
+        $profilePhoto=$statement->fetch(PDO::FETCH_ASSOC);
+        $statement->closeCursor();
+       
+        return $profilePhoto['profilePhoto'];
+
+    }
+
 
 
    public function updateDbAccount($id_user, $firstname, $lastname, $phoneNumber, $dateOfBirth, $address, $gender, $profilePhoto){

@@ -16,8 +16,8 @@
     <h1>Ton profil</h1>
     <div class="profil-photo">
         <div class="photouser"> <img src="<?php if (!empty($user['profilePhoto'])) {?>
-             ../public/images/<?php echo $user['profilePhoto'];
-        } else {?>https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png
+            <?= URL ?>public/images/<?php echo $user['profilePhoto'];
+       } else {?>https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png
 
         <?php } ?>" alt="" style="width:100%; height:100%; border-radius: 10px">
        
@@ -79,9 +79,10 @@
             <p><?php echo $user['gender']?></p>
            
             <label for="image">photo de profil</label>
-            <p><img src="../public/images/<?php echo $user['profilePhoto']?>" alt="" style="width:50px; height:50px; border-radius: 10px"> </p>
+            <p><img src="<?= URL ?>public/images/<?php echo $user['profilePhoto']?>" alt="" style="width:50px; height:50px; border-radius: 10px"> </p>
 
-            <button type="submit">Modifier</button>
+   
+            <a href="<?= URL ?>account/modifyAccount/<?= $user['id'] ?>"><button type="submit">Modifier</button></a>
           
                 
             <div class="modify-account">
