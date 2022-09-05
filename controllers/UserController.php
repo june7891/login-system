@@ -1,7 +1,9 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 require "controllers/Security.class.php";
 require "models/UserManager.php";
 require_once "utils/functions.php";
+
 
 class UserController{
     private $userManager;
@@ -24,14 +26,16 @@ class UserController{
 
 
     public function registerUser() {
-        
+        $method = $_SERVER['REQUEST_METHOD'];
+
+        if ($method === "POST") {
         $username = Security::secureHTML($_POST['username']); 
         $email = Security::secureHTML($_POST['email']);
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $confirm_password = Security::secureHTML($_POST['confirm_password']);
-        
+        } 
 
-
+    
         //verifie si tous les champs sont renseignés
         if(empty($_POST['username']) || empty($_POST['email']) || 
         empty($_POST['password']) || empty($_POST['confirm_password'])){
@@ -63,7 +67,7 @@ class UserController{
             flash("register", "Pseudo ou mot de passe déjà pris");
             header('Location: '.URL."signup");
         } else {
-            $user = $this->userManager->registerUserDb($username, $email, $password, $account_created_at); 
+            $user = $this->userManager->registerUserDb($username, $email, $password); 
             header('Location: '.URL."login");
         }
     

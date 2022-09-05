@@ -4,9 +4,9 @@ require_once "models/Model.php";
 class UserManager extends Model{
 
 
-    public function registerUserDb($username, $email, $password, $account_created_at){
-    $req = "INSERT INTO users (username, password, email, account_created_at) 
-    VALUES (:username, :password, :email, NOW())";
+    public function registerUserDb($username, $email, $password){
+    $req = "INSERT INTO users (username, password, email) 
+    VALUES (:username, :password, :email)";
     $statement = $this->getConnexion()->prepare($req);
     $statement->bindValue(":username",$username,PDO::PARAM_STR);
     $statement->bindValue(":email",$email,PDO::PARAM_STR);

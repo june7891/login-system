@@ -6,7 +6,7 @@ class DatabaseConnection {
     
     public function getConnection(): PDO {
        if($this->database === null) {
-       $this->database = new PDO('mysql:host=localhost;dbname=espace_user;charset=utf8', 'root', ''); 
+       $this->database = new PDO('mysql:host=localhost;dbname=espace_user;charset=utf8', 'root', 'afpa33'); 
     }  
     return $this->database;
     }

@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/slider.style.css">
+    <link rel="stylesheet" type="text/css" href="css/searchForm.style.css">
 
     <title>Document</title>
 </head>

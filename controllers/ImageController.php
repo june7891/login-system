@@ -93,6 +93,19 @@ throw new Exception("Access forbiden");
 }
 }
 
+
+public function galleryModificationTemplate(){
+    if(Security::verifAccessSession()){
+        $user_id = $_SESSION['id'];
+      
+        $tabImages = $this->imageManager->getImages($user_id);  
+    require_once "views/galleryModification.view.php";
+    }
+}
+
+
+
+
 public function modification($id_image){
     if(Security::verifAccessSession()){
       
@@ -110,7 +123,7 @@ public function modification($id_image){
             $id_image = (int)Security::secureHTML($_POST['image_id']);
             $imageName= $this->imageManager->getImage($id_image);
             if($_FILES['image']['size'] > 0){
-            unlink("public/images/".$image);
+            unlink("public/images/".$imageName);
             $repertoire = "public/images/";
             $imageName = ajoutImage($_FILES['image'],$repertoire);
 

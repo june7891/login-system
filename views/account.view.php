@@ -19,23 +19,20 @@
             <?= URL ?>public/images/<?php echo $user['profilePhoto'];
        } else {?>https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png
 
-        <?php } ?>" alt="" style="width:100%; height:100%; border-radius: 10px">
+        <?php } ?>" alt="" style="width:100%; height:100%; border-radius:10px">
        
-
-           
-      
         </div>
             
         
         
         
-        <div class="pseudouser"><?=$username?></div>
+        <div class="username"><?=$username?></div>
     </div>
 </div>
 
-<div class="partage">
+<div class="share">
     <h1>Fais ta propre carte de Triper!</h1>
-    <p><button type="submit"><a href="<?= URL ?>account/carteTriper">Personnaliser</a></button></p>
+    <a  href="<?= URL ?>account/carteTriper"><button class="btn">Personnaliser</button></a>
 </div>
 
 

@@ -1,22 +1,24 @@
-<?php ob_start();?>
+<?php ob_start(); ?>
 
 
 <div class="profil">
     <h1>Ta gallerie </br>
         de souvenirs</h1>
     <div class="profil-photo">
-        <div class="photouser"><img src="<?php if (!empty($user['profilePhoto'])) {?>
-             ../public/images/<?php echo $user['profilePhoto'];
-        } else {?>https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png
+        <div class="username"><img src="<?php if (!empty($user['profilePhoto'])) { ?>
+            <?= URL ?>public/images/<?php echo $user['profilePhoto'];
+                                        } else { ?>https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png
 
         <?php } ?>" alt="" style="width:100%; height:100%; border-radius: 15px"></div>
-        <div class="pseudouser"><?php if(isset($_SESSION['username'])) {
-                echo explode(" ", $_SESSION['username'])[0];} ?></div>
+        <div class="username"><?php if (isset($_SESSION['username'])) {
+                                    echo explode(" ", $_SESSION['username'])[0];
+                                } ?></div>
     </div>
 </div>
-<div class="partage">
+<div class="share">
     <h1>Partage tes photos !</h1>
-    <p><button type="submit"><a href="<?= URL ?>gallery/add">Envoyer</a></button></p>
+   <a href="<?= URL ?>gallery/add"><button class="btn">Envoyer</button></a>
+    <a href="<?= URL ?>gallery/modify"><button class="btn">Modifier</button></a>
 </div>
 
 
@@ -24,42 +26,22 @@
 
     <div class="container">
 
-    <?php foreach($tabImages as $image) : ?>
-    
-     
-        <div class="col">
-            <div class="card">
-                <div class="photosouvenir">
+        <?php foreach ($tabImages as $image) : ?>
 
-                  <img src="../public/images/<?php echo $image['image_name']?>" style="width:100%; height:100%; border-radius: 15px">
-        
-                </div>
-                  
 
-                <div class="lieusouvenir"><?php echo $image['image_title']?></div>
+            <div class="col">
+                <div class="card">
+                    <div class="photo-container">
 
-                <div class="buttons">
-                     <form method="post" action="<?= URL ?>gallery/validationSuppression"
-                onSubmit="return confirm('Voulez-vous vraiment supprimer ?');">
-                <input type="hidden" name="image_id" value="<?= $image['image_id'] ?>" />
-                <input type="submit" value="" class="btn-delete">
-                    </form>
+                        <img src="<?= URL ?>public/images/<?php echo $image['image_name'] ?>" style="">
 
-                <form method="post" action="<?= URL ?>gallery/modification/<?=$image['image_id']?>">
-                <input type="hidden" name="image_id" value="<?= $image['image_id'] ?>" />
-                <input type="submit" value="" class="btn-modify">
-                </form>
+                    </div>
 
+
+                    <div class="image-title"><?php echo $image['image_title'] ?></div>
 
                 </div>
-               
-
-               
-           
-
-      
             </div>
-        </div>
         <?php endforeach; ?>
 
     </div>
