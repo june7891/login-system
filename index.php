@@ -1,18 +1,26 @@
 <?php
 session_start();
 
+
 define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") .
     "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
+
+$_SESSION["apikey"] = "X-RapidAPI-Key: dcaf319b7cmsh60561c7268d4e4ap1a2672jsna2615b3a92dd";
+
 
 
 require_once "controllers/UserController.php";
 require_once "controllers/ImageController.php";
 require_once "controllers/MainController.php";
+require_once 'controllers/tripControllers.php';
+require_once 'controllers/TransportController.php';
 
 
 $userController = new UserController();
 $imageController = new ImageController();
 $mainController = new MainController();
+$tripController = new TripControllers();
+$transportController = new TransportController();
 
 
 
@@ -93,6 +101,15 @@ try {
                     default:
                         throw new Exception("La page n'existe pas");
                 }
+                break;
+            case 'resultHotels':
+                $hotelsController->getHotelsByLocation();
+                break;
+            case 'resultTrip':
+                $tripController->getTripsByDepartureReturnPeople();
+                break;
+            case 'resultTransport':
+                $transportController->getTransports();
                 break;
             default:
                 throw new Exception("La page n'existe pas");
