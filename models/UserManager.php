@@ -81,17 +81,19 @@ class UserManager extends Model{
 
 
 
-   public function updateDbAccount($id_user, $firstname, $lastname, $phoneNumber, $dateOfBirth, $address, $gender, $profilePhoto){
-    $req ="UPDATE users SET firstname = :firstname, lastname = :lastname, phoneNumber = :phoneNumber, dateOfBirth = :dateOfBirth, address = :address, gender = :gender, profilePhoto = :profilePhoto WHERE id= :id_user";
+   public function updateDbAccount($id_user, $username, $email, $firstname, $lastname, $phoneNumber, $dateOfBirth, $address, $gender, $profilePhoto){
+    $req ="UPDATE users SET firstname = :firstname, lastname = :lastname, phoneNumber = :phoneNumber, dateOfBirth = :dateOfBirth, address = :address, occupation = :occupation, profilePhoto = :profilePhoto WHERE id= :id_user";
     $stmt = $this->getConnexion()->prepare($req);
 
     $stmt->bindValue(":id_user",$id_user,PDO::PARAM_INT);
+    $stmt->bindValue(":firstname",$username,PDO::PARAM_STR);
+    $stmt->bindValue(":lastname",$email,PDO::PARAM_STR);
     $stmt->bindValue(":firstname",$firstname,PDO::PARAM_STR);
     $stmt->bindValue(":lastname",$lastname,PDO::PARAM_STR);
     $stmt->bindValue(":phoneNumber",$phoneNumber,PDO::PARAM_STR);
     $stmt->bindValue(":dateOfBirth",$dateOfBirth,PDO::PARAM_STR);
     $stmt->bindValue(":address",$address,PDO::PARAM_STR);
-    $stmt->bindValue(":gender",$gender,PDO::PARAM_STR);
+    $stmt->bindValue(":occupation",$gender,PDO::PARAM_STR);
     $stmt->bindValue(":profilePhoto",$profilePhoto,PDO::PARAM_STR);
     $stmt->execute();   
     $stmt->closeCursor();

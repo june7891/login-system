@@ -1,0 +1,37 @@
+.newsletter {
+
+  background-color: #41c2f4;
+  margin-bottom: 84px;
+  margin-top: 84px;
+  flex-wrap: wrap; 
+  align-items: center;
+}
+
+
+.text {
+  width: 600px;
+  height: 19px;
+  font-weight: 400;
+  font-size: 16px;
+  margin-left: 100px;
+
+}
+
+.newsletter img {
+  height: 36px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.newsletter input {
+  width: 575px;
+  height: 54px;
+  border-radius: 0;
+}
+.btn-newsletter {
+  border-radius: 0px 15px 15px 0px;
+  background: #f9b532;
+  width: 115px;
+  height: 54px;
+}
+

@@ -1,0 +1,56 @@
+.offer {
+  border-radius: 20px;
+  box-shadow: -10px 10px 2px 1px black;
+}
+
+.offer img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.travel {
+  margin-top: 50px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.contentCard {
+  max-width: 1130px;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(3, 350px);
+  gap: 150px;
+}
+
+.cardContent {
+  position: relative;
+  min-height: 400px;
+  width: 400px;
+  cursor: pointer;
+}
+.cardContent img:hover {
+  transform: scale(1.1);
+}
+
+.imageContainer {
+  height: 500px;
+  border-radius: 15px;
+  margin: 25px;
+  overflow: hidden;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  transition: 1s transform;
+}
+
+.title {
+  height: 50px;
+}

@@ -2,6 +2,9 @@
 
 require_once "views/commons/searchForm.php";
 require_once "views/commons/slider.php";
+require_once "views/commons/cards.php";
+require_once "views/commons/newsletter.php";
+require_once "views/commons/advantages.php";
 
 
 

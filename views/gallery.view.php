@@ -48,6 +48,10 @@
 </section>
 
 
+<!-- Modal image -->
+
+
+
 <?php
 $content = ob_get_clean();
 $titre = "Gallery";
