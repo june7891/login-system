@@ -172,17 +172,22 @@ class TripManager
 
         $formatTabForHotelsDetail = json_decode($resultHotelDetail, true);
 
-        $nameHotel =  $formatTabForHotelsDetail["hotels"][0]["name"];
-        $brandHotel =  $formatTabForHotelsDetail["hotels"][0]["brand"];
-        $starRatingHotel =  $formatTabForHotelsDetail["hotels"][0]["starRating"];
-        $featuresHotel =  $formatTabForHotelsDetail["hotels"][0]["hotelFeatures"]["hotelAmenityCodes"];
+        $nameHotel =  $formatTabForHotelsDetail["hotels"][1]["name"];
+        $brandHotel =  $formatTabForHotelsDetail["hotels"][1]["brand"];
+        $starRatingHotel =  $formatTabForHotelsDetail["hotels"][1]["starRating"];
+        $featuresHotel =  $formatTabForHotelsDetail["hotels"][1]["hotelFeatures"]["hotelAmenityCodes"];
+        $CityNameHotel =  $formatTabForHotelsDetail["cityInfo"]["cityName"];
+        $CountryNameHotel =  $formatTabForHotelsDetail["cityInfo"]["countryName"];
+        $imageHotel =  $formatTabForHotelsDetail["hotels"][1]["media"];
 
         $tabHotelInfos = array(
             'nameHotel' => $nameHotel,
             'brandHotel' => $brandHotel,
             'starRatingHotel' => $starRatingHotel,
-            'featuresHotel' => $featuresHotel
-
+            'featuresHotel' => $featuresHotel,
+            'CityNameHotel' => $CityNameHotel,
+            'CountryNameHotel' => $CountryNameHotel,
+            'imageHotel ' => $imageHotel 
         );
 
 

@@ -51,7 +51,7 @@ transport.onclick = () => {
 
   filtreTransport.style.display = "";
   filtreHebergement.style.display = "none";
-  formUrl.action = "http://localhost/login-system-main/resultTransport";
+  formUrl.action = "http://localhost/login-system/resultTransport";
   // formUrl.action = "<?= URL ?>resultTrip";
 };
 
@@ -67,5 +67,5 @@ sejour.onclick = () => {
   filtreTransport.style.display = "";
   filtreHebergement.style.display = "";
 
-  formUrl.action = "http://localhost/login-system-main/resultTrip";
+  formUrl.action = "http://localhost/login-system/resultTrip";
 };
