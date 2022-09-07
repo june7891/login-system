@@ -14,6 +14,7 @@ require_once "controllers/ImageController.php";
 require_once "controllers/MainController.php";
 require_once 'controllers/tripControllers.php';
 require_once 'controllers/TransportController.php';
+require_once 'controllers/ResultsSearchTripsController.php';
 
 
 $userController = new UserController();
@@ -21,6 +22,7 @@ $imageController = new ImageController();
 $mainController = new MainController();
 $tripController = new TripControllers();
 $transportController = new TransportController();
+$resultsSearchTripsController = new ResultsSearchTripsController();
 
 
 
@@ -34,6 +36,9 @@ try {
         switch ($url[0]) {
             case "accueil":
                 $mainController->getPageAccueil();
+                break;
+            case "remy":
+               echo "youpi";
                 break;
             case "login":
                 $userController->getLoginPage();
@@ -108,8 +113,11 @@ try {
             case 'resultTrip':
                 $tripController->getTripsByDepartureReturnPeople();
                 break;
-            case 'resultTransport':
+            case "resultTransport":
                 $transportController->getTransports();
+                break;
+            case "resultsSearchTrips":
+                $resultsSearchTripsController->getResults();
                 break;
             default:
                 throw new Exception("La page n'existe pas");
