@@ -1,17 +1,8 @@
-<div class="newsletter d-flex">
+<section class="newsletter">
+        <form class="news flex-row" action="" method="post">
+            <p>Recevez les dernières informations voyages sur votre boite mail<img src="./images/Mail.svg" alt=""></p>
 
-    <div class="text d-flex">
-        <p>Recevez les dernières voyages informations sur votre boîte mail</p>
-        <img src="<?php URL ?>images/mail.svg" alt="">
-    </div>
-
-    <div>
-        <form class="flex-row" action="">
-            <input type="email" name="email" placeholder="Saisissez votre adresse e-mail">
-            <button class="btn-newsletter" type="submit">S'inscrire</button>
+            <input type="text" name="mail" placeholder="Saisissez votre adresse e-mail">
+            <button>S'inscrire</button>
         </form>
-
-    </div>
-
-
-</div>
+    </section>

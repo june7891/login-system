@@ -4,7 +4,7 @@
     <div class="arrowLeft" onclick="scrolll()"></div>
     <div class="slider">
         <div class="slide">
-            <a id="campagne" href=""><img src="<?php URL?>images/campagne.svg" alt=""></a>
+            <a id="campagne" href=""><img src="./images/campagne.svg" alt=""></a>
             <a id="campagne2" href=""><img src="./images/campagne-bleu.svg" alt=""></a>
         </div>
         <div class="slide">

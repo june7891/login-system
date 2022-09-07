@@ -7,21 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-   
 
-  
-    <link rel="stylesheet" type="text/css" href="<?php URL ?>css/style.css">
+
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="css/slider.style.css">
-    <link rel="stylesheet" type="text/css" href="css/searchForm.style.css">
+
 
     <link rel="stylesheet" type="text/css" href="css/form.css">
 
     <link rel="stylesheet" type="text/css" href="css/cards.style.css">
     <link rel="stylesheet" type="text/css" href="css/advantages.style.css">
     <link rel="stylesheet" type="text/css" href="css/newsletter.style.css">
+    <link rel="stylesheet" type="text/css" href="css/about.style.css">
 
 
     <title>Document</title>
@@ -30,7 +31,7 @@
 <body>
     <?php require_once("views/commons/menu.php") ?>
     <div>
-        <h1><?= $titre ?></h1>
+    
         <?= $content ?>
     </div>
 

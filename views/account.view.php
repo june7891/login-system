@@ -37,7 +37,7 @@
 
 
 
-<div class="container">
+<div class="container-account">
 
 
     <div class="form-account">
@@ -82,7 +82,7 @@
             <p><img src="<?= URL ?>public/images/<?php echo $user['profilePhoto'] ?>" alt="" style="width:50px; height:50px; border-radius: 10px"> </p>
             <button class="btn-form" type="submit">Modifier</button>
             </form>
-            <a href="delete-account.php">supprimmer mon compte</a>
+            <a href="delete-account.php">supprimer mon compte</a>
         </div>
 
     </div>
