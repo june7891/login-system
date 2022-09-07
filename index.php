@@ -12,15 +12,17 @@ $_SESSION["apikey"] = "X-RapidAPI-Key: dcaf319b7cmsh60561c7268d4e4ap1a2672jsna26
 require_once "controllers/UserController.php";
 require_once "controllers/ImageController.php";
 require_once "controllers/MainController.php";
-require_once 'controllers/tripControllers.php';
+require_once 'controllers/tripController.php';
 require_once 'controllers/TransportController.php';
+require_once 'controllers/HebergementController.php';
 
 
 $userController = new UserController();
 $imageController = new ImageController();
 $mainController = new MainController();
-$tripController = new TripControllers();
+$tripController = new TripController();
 $transportController = new TransportController();
+$hebergementController = new HebergementController();
 
 
 
@@ -115,8 +117,8 @@ try {
                         throw new Exception("La page n'existe pas");
                 }
                 break;
-            case 'resultHotels':
-                $hotelsController->getHotelsByLocation();
+            case 'resultHebergement':
+                $hebergementController->getHebergementsByLocation();
                 break;
             case 'resultTrip':
                 $tripController->getTripsByDepartureReturnPeople();

@@ -2,7 +2,7 @@
 
 require_once "models/TripManager.php";
 
-class TripControllers
+class TripController
 {
 
     private $TripManager;
@@ -12,19 +12,14 @@ class TripControllers
         $this->tripManager = new TripManager();
     }
 
-    public function getForm()
-    {
-
-        require "views/formTrip.php";
-    }
     public function getTripsByDepartureReturnPeople()
     {
-        $departureDate =  $_POST['departureDate'] ?? '';
-        $returnDate = $_POST['returnDate'] ?? '';
-        $adults = $_POST['adults'] ?? '';
-        $children = $_POST['children'] ?? '';
-        $originCity = $_POST['originCity'] ?? '';
-        $destinationCity = $_POST['destinationCity'] ?? '';
+        $departureDate =  $_POST['departureDateTrip'] ?? '';
+        $returnDate = $_POST['returnDateTrip'] ?? '';
+        $adults = $_POST['adultsTrip'] ?? '';
+        $children = $_POST['childrenTrip'] ?? '';
+        $originCity = $_POST['originCityTrip'] ?? '';
+        $destinationCity = $_POST['destinationCityTrip'] ?? '';
         $result = $this->tripManager->getTripsByDepartureReturnPeople($departureDate, $returnDate, $adults, $children, $originCity, $destinationCity);
 
 

@@ -15,23 +15,24 @@ closeButton.onclick = () => {
 
 //Changement d'onglet
 
-var depart = document.getElementById("depart");
-var destination = document.getElementById("destination");
-
 var hebergement = document.getElementById("hebergement");
 var transport = document.getElementById("transport");
 var sejour = document.getElementById("sejours");
 
+var formHebergement = document.getElementById("formHebergement");
+var formTransport = document.getElementById("formTransport");
+var formTrip = document.getElementById("formTrip");
+
 var filtreHebergement = document.getElementById("filtreHebergement");
 var filtreTransport = document.getElementById("filtreTransport");
-
-var formUrl = document.getElementById("formUrl");
 
 //Hébergement
 
 hebergement.onclick = () => {
-  depart.style.display = "none";
-  destination.style.display = "none";
+  formHebergement.style.display = "block";
+  formTransport.style.display = "none";
+  formTrip.style.display = "none";
+
   transport.style.backgroundColor = "#69DC8A";
   hebergement.style.backgroundColor = "#F9B532";
   sejour.style.backgroundColor = "#69DC8A";
@@ -43,23 +44,29 @@ hebergement.onclick = () => {
 //Transport
 
 transport.onclick = () => {
-  depart.style.display = "";
-  destination.style.display = "";
+  formTransport.style.display = "block";
+  formHebergement.style.display = "none";
+  formTrip.style.display = "none";
+
   transport.style.backgroundColor = "#F9B532";
   hebergement.style.backgroundColor = "#69DC8A";
   sejour.style.backgroundColor = "#69DC8A";
 
   filtreTransport.style.display = "";
   filtreHebergement.style.display = "none";
-  formUrl.action = "http://localhost/login-system-main/resultTransport";
+  //à changer
+  formUrl.action =
+    "http://localhost/ecolotrip-git/login-system/resultTransport";
   // formUrl.action = "<?= URL ?>resultTrip";
 };
 
 //Séjours
 
 sejour.onclick = () => {
-  depart.style.display = "";
-  destination.style.display = "";
+  formTrip.style.display = "block";
+  formHebergement.style.display = "none";
+  formTransport.style.display = "none";
+
   transport.style.backgroundColor = "#69DC8A";
   hebergement.style.backgroundColor = "#69DC8A";
   sejour.style.backgroundColor = "#F9B532";
@@ -67,5 +74,6 @@ sejour.onclick = () => {
   filtreTransport.style.display = "";
   filtreHebergement.style.display = "";
 
-  formUrl.action = "http://localhost/login-system-main/resultTrip";
+  //à changer
+  formUrl.action = "http://localhost/ecolotrip-git/login-system/resultTrip";
 };
