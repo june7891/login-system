@@ -14,12 +14,12 @@ class HebergementController
 
 
     public function getHebergementsByLocation(){
-        $departureDate =  $_POST['departureDate'] ?? '';
-        $returnDate = $_POST['returnDate'] ?? '';
-        $adults = $_POST['adults'] ?? '';
+        $departureDate =  $_POST['departureDateHebergement'] ?? '';
+        $returnDate = $_POST['returnDateHebergement'] ?? '';
+        $adults = $_POST['adultsHebergement'] ?? '';
         //v2 avec un form qui spécifie les enfants
-        $children = $_POST['children'] ?? '';
-        $destinationCity = $_POST['destinationCity'] ?? '';
+        $children = $_POST['childrenHebergement'] ?? '';
+        $destinationCity = $_POST['destinationCityHebergement'] ?? '';
         $result = $this->HebergementManager->getHebergementsByLocation($departureDate, $returnDate, $adults, $children, $destinationCity);
 
         //à changer

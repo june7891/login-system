@@ -179,6 +179,7 @@ class TripManager
         $CityNameHotel =  $formatTabForHotelsDetail["cityInfo"]["cityName"];
         $CountryNameHotel =  $formatTabForHotelsDetail["cityInfo"]["countryName"];
         $imageHotel =  $formatTabForHotelsDetail["hotels"][1]["media"];
+        $priceHotel = $formatTabForHotelsDetail["hotels"][1]["ratesSummary"]['minStrikePrice'];
 
         $tabHotelInfos = array(
             'nameHotel' => $nameHotel,
@@ -187,7 +188,8 @@ class TripManager
             'featuresHotel' => $featuresHotel,
             'CityNameHotel' => $CityNameHotel,
             'CountryNameHotel' => $CountryNameHotel,
-            'imageHotel ' => $imageHotel 
+            'imageHotel ' => $imageHotel,
+            'priceHotel' => $priceHotel,  
         );
 
 

@@ -11,6 +11,14 @@ class HebergementManager{
        //Appel API pour avoir l'iD de l'hotel a la destination donné
        $destinationCityName = substr($destinationCity, 4, 11);
 
+    //    print_r($departureDate . '/');
+    //    print_r($returnDate . '/');
+    //    print_r($adults . '/');
+    //    print_r($children . '/');
+    //    print_r($destinationCity . '/');
+    //    die();
+
+
        $curl = curl_init();
 
        curl_setopt_array($curl, [
@@ -77,6 +85,7 @@ class HebergementManager{
        $CityNameHotel =  $formatTabForHotelsDetail["cityInfo"]["cityName"];
        $CountryNameHotel =  $formatTabForHotelsDetail["cityInfo"]["countryName"];
        $imageHotel =  $formatTabForHotelsDetail["hotels"][1]["media"];
+       $priceHotel = $formatTabForHotelsDetail["hotels"][1]["ratesSummary"]['minStrikePrice'];
 
        $tabHotelInfos = array(
            'nameHotel' => $nameHotel,
@@ -85,7 +94,8 @@ class HebergementManager{
            'featuresHotel' => $featuresHotel,
            'CityNameHotel' => $CityNameHotel,
            'CountryNameHotel' => $CountryNameHotel,
-           'imageHotel ' => $imageHotel 
+           'imageHotel ' => $imageHotel,
+           'priceHotel' => $priceHotel        
        );
     curl_close($curl);
     
