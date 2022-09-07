@@ -14,7 +14,7 @@
         <input type="password" name="password" placeholder="mot de passe">
         <input type="password" name="confirm_password" placeholder="confirme ton mot de passe">
         <p class="cross"><input class="check" type="checkbox" name="check" id="">recevoir la newsletter</p>
-        <button type="submit" name="submit">s'inscrire</button>
+        <button class="btn" type="submit" name="submit">s'inscrire</button>
         <p class="connection">déjà un compte ? <a href="<?= URL ?>login">Se connecter</a></p>
     </form>
 </div>

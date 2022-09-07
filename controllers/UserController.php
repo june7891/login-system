@@ -141,13 +141,6 @@ class UserController
 
 
 
-    public function updateUsernameEmail()
-    {
-        echo "modifier le pseudo ou mot de passe";
-    }
-
-
-
 
     // connexion/login
 
@@ -226,6 +219,31 @@ class UserController
 
     public function remindPasswordValidation()
     {
-        require "views/messageValidationPassword.view.php";
+        if(!empty($_POST['email'])) {
+            $email = $_POST['email'];
+           require "views/messageValidationPassword.view.php"; 
+        } else {
+            flash('remind', "Veuillez remplir tous les champs!");
+            require "views/remindPassword.view.php"; 
+        }
+        
+    }
+
+
+
+    public function deleteAccount($id_user) {
+
+     
+            $id_user = (int)Security::secureHTML($_SESSION['id']);
+            $this->userManager->deleteDbAccount($id_user);
+            session_destroy();
+            
+            require "views/accountDeleted.view.php"; 
+
+
+        
+
+
+
     }
 }

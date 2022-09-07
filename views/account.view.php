@@ -82,7 +82,7 @@
             <p><img src="<?= URL ?>public/images/<?php echo $user['profilePhoto'] ?>" alt="" style="width:50px; height:50px; border-radius: 10px"> </p>
             <button class="btn-form" type="submit">Modifier</button>
             </form>
-            <a href="delete-account.php">supprimer mon compte</a>
+            <a href="<?php URL ?>deleteAccount/<?php $_SESSION['id']?>"  onClick="return confirm('Veux-tu vraiment supprimer ton compte ?');">supprimer mon compte</a>
         </div>
 
     </div>
@@ -92,5 +92,4 @@
 
 <?php
 $content = ob_get_clean();
-$titre = "";
 require "views/commons/template.php";

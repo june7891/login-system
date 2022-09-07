@@ -50,6 +50,12 @@ input,
   box-shadow: -10px 10px 2px 1px black;
 }
 
+.btn:hover {
+  color: #F45741;
+  box-shadow: -10px 10px 2px 1px #F45741;
+
+}
+
 .btn-form {
   background-color: #f9b532;
   padding: 10px;
@@ -583,3 +589,24 @@ footer a {
   justify-content: center;
   margin-bottom: 15px;
 }
+
+
+/* style page app */
+
+
+.images-app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 84px;
+}
+
+
+ .images-app img {
+  width: 20%;
+  height: 10%;
+  border-radius: 15px;
+  
+} 
+

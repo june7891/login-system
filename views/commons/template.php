@@ -23,13 +23,14 @@
     <link rel="stylesheet" type="text/css" href="css/advantages.style.css">
     <link rel="stylesheet" type="text/css" href="css/newsletter.style.css">
     <link rel="stylesheet" type="text/css" href="css/about.style.css">
+    <link rel="stylesheet" type="text/css" href="css/contact.style.css">
 
 
     <title>Document</title>
 </head>
 
 <body>
-    <?php require_once("views/commons/menu.php") ?>
+    <?php require_once("views/commons/header.php") ?>
     <div>
     
         <?= $content ?>

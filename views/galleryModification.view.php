@@ -50,7 +50,7 @@
         </div>
         <?php endforeach; ?>
         <?php } else {?>
-            <h2>Ta n'as rien à modifier!</h2> 
+            <h2>Tu n'as rien à modifier!</h2> 
             <a href="<?= URL ?>gallery/add"><button class="btn">Ajouter</button></a>
         <?php } ?>
 
