@@ -1,0 +1,26 @@
+.section-about {
+    margin-left: 20%;
+    margin-bottom: 300px;
+    padding-top: 30px;
+    border-radius: 10px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: #41c2f4;
+    width: 60%;
+    height: 1600px;
+    box-shadow: -10px 10px 2px 1px #69dc8a;
+}
+
+
+.section-about h2 {
+    text-align: center;
+}
+.section-about p {
+    text-align: center;
+    font-size: 25px;
+    padding: 20px 80px;
+    font-weight: 400;
+  line-height: 30px;
+}
+

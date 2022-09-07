@@ -37,6 +37,12 @@ try {
             case "accueil":
                 $mainController->getPageAccueil();
                 break;
+            case "about":
+                $mainController->getPageAbout();
+                break;
+            case "contact":
+                $mainController->getPageContact();
+                break;
             case "login":
                 $userController->getLoginPage();
                 break;
