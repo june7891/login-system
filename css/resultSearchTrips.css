@@ -7,8 +7,9 @@
 }
 .searchtripeur {
   margin: auto;
-  max-width: 200px;
+  max-width: 150px;
+  margin: 5px;
 }
 .searchtripeur input {
-  max-width: 200px;
+  max-width: 150px;
 }

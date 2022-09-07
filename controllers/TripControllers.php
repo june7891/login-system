@@ -27,6 +27,11 @@ class TripControllers
         $destinationCity = $_POST['destinationCity'] ?? '';
         $result = $this->tripManager->getTripsByDepartureReturnPeople($departureDate, $returnDate, $adults, $children, $originCity, $destinationCity);
 
+        print_r($result);
+        die();
+
+        global $variableGloblaleVoyage;
+        $variableGloblaleVoyage = $result;
 
 
         // $JsonTripResult = json_encode($result,true);

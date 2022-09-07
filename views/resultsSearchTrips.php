@@ -1,4 +1,7 @@
-<?php ob_start(); ?>
+<?php ob_start();
+require_once "./controllers/TripControllers.php"
+?>
+
 
 <div class="subtext">
     <a id="sejours" class="typeTravel" href="#">Séjours</a>
@@ -20,31 +23,28 @@
             </div>
             <div class="searchtripeur">
                 <p>Date de départ</p>
-                <input readonly id="dateRetour" type="date" name="departureDate" placeholder="Date de départ" value="departureDate">
+                <input readonly="readonly3">
             </div>
             <div class="searchtripeur">
                 <p>Date de retour</p>
-                <input readonly id="dateRetour" type="date" name="returnDate" placeholder="returnDate" value="returnDate">
+                <input readonly="readonly4">
             </div>
-
-        </div>
-        <div class="box">
-
-            <div class="date">
-                <div>
-                    <p>Nombre de voyageurs</p>
-                    <input class = "inputReadOnly" readonly id="voyageur" type="number" name="adults" id="" min="1" placeholder="adults" value="adults">
-                    <!-- <input id="voyageur" type="number" name="voyageurs" id="" min="1" placeholder="children" value="children"> -->
-                </div>
-            </div>
-
-            <div>
-                <img id="filter" src="./images/filtre.svg" alt="">
+            <div class="searchtripeur">
+                <p>Nb voyageurs</p>
+                <input readonly="readonly5">
             </div>
         </div>
-    </form>
+        <div class="searchCard">
+            <?= $variableGloblaleVoyage ?>
 
-    <?php
-    $content = ob_get_clean();
-    $titre = "Les trips dispo : ";
-    require "views/commons/template.php";
+
+        </div>
+
+</div>
+</div>
+</form>
+
+<?php
+$content = ob_get_clean();
+$titre = "Les trips dispo : ";
+require "views/commons/template.php";
