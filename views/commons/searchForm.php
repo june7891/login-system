@@ -4,9 +4,9 @@
     <a id="transport" class="typeTravel2" href="#">Transport</a>
 </div>
 <div class="form-search container-search">
-    <form id='formUrl' class="" action="<?= URL ?>resultTrip" method="post">
+    <form id='formTrip' class="" action="<?= URL ?>resultTrip" method="post">
         <div class="search">
-            <select id="depart" type="text" name="originCity">
+            <select id="depart" type="text" name="originCityTrip">
                 <option value="">--Ville de départ--</option>
                 <option value="CDG Paris      23631">Paris</option>
                 <option value="BRU Bruxelle   23711">Bruxelle</option>
@@ -14,13 +14,15 @@
                 <option value="TLS Toulouse   23761">Toulouse</option>
                 <option value="TLN Toulon     4908">Toulon</option>
             </select>
-            <input id="dateRetour" type="date" name="departureDate" placeholder="Date de départ" value="departureDate">
+            <!-- <input id="dateRetour" type="date" name="departureDateTrip" placeholder="Date de départ" value="departureDateTrip"> -->
+            <input required="" name = "departureDateTrip" placeholder="Date de départ"  type="text" class="form-control" onfocus="(this.type='date')"/>
 
-            <input id="dateRetour" type="date" name="returnDate" placeholder="returnDate" value="returnDate">
+            <!-- <input id="dateRetour" type="date" name="returnDateTrip" placeholder="returnDate" value="returnDateTrip"> -->
+            <input required="" name = "returnDateTrip" placeholder="Date de retour"  type="text" class="form-control" onfocus="(this.type='date')"/>
         </div>
         <div class="box">
             <div class="date">
-                <select name="destinationCity" id="destination" type="text" placeholder="Destination">
+                <select name="destinationCityTrip" id="destination" type="text" placeholder="DestinationTrip">
                     <option value="">--Ville d'arrivée--</option>
                     <option value="CDG Paris      23631">Paris</option>
                     <option value="BRU Bruxelle   23711">Bruxelle</option>
@@ -29,7 +31,7 @@
                     <option value="TLN Toulon     4908">Toulon</option>
                 </select>
 
-                <input id="voyageur" type="number" name="adults" id="" min="1" placeholder="adults" value="adults">
+                <input id="voyageur" type="number" name="adultsTrip" id="" min="1" placeholder="adults" value="adultsTrip">
                 <!-- <input id="voyageur" type="number" name="voyageurs" id="" min="1" placeholder="children" value="children"> -->
 
             </div>
@@ -39,7 +41,84 @@
                 </button>
             </div>
             <div>
-                <img id="filter" src="./images/filtre.svg" alt="">
+                <img id="filter" src="images/filter.svg" alt="">
+            </div>
+        </div>
+    </form>
+
+    <form id='formTransport' class="" action="<?= URL ?>resultTransport" method="post">
+        <div class="search">
+            <select id="depart" type="text" name="originCityTransport">
+                <option value="">--Ville de départ--</option>
+                <option value="CDG Paris      23631">Paris</option>
+                <option value="BRU Bruxelle   23711">Bruxelle</option>
+                <option value="VNO Vilnius    33401">Vilnius</option>
+                <option value="TLS Toulouse   23761">Toulouse</option>
+                <option value="TLN Toulon     4908">Toulon</option>
+            </select>
+            <!-- <input id="dateRetour" type="date" name="departureDateTransport" placeholder="Date de départ" value="departureDateTransport"> -->
+            <input required="" name = "departureDateTransport" placeholder="Date de départ"  type="text" class="form-control" onfocus="(this.type='date')"/>
+
+            <!-- <input id="dateRetour" type="date" name="returnDateTransport" placeholder="returnDate" value="returnDateTransport"> -->
+            <input required="" name = "returnDateTransport" placeholder="Date de retour"  type="text" class="form-control" onfocus="(this.type='date')"/>
+        </div>
+        <div class="box">
+            <div class="date">
+                <select name="destinationCityTransport" id="destination" type="text" placeholder="Destination">
+                    <option value="">--Ville d'arrivée--</option>
+                    <option value="CDG Paris      23631">Paris</option>
+                    <option value="BRU Bruxelle   23711">Bruxelle</option>
+                    <option value="VNO Vilnius    33401">Vilnius</option>
+                    <option value="TLS Toulouse   23761">Toulouse</option>
+                    <option value="TLN Toulon     4908">Toulon</option>
+                </select>
+
+                <input id="voyageur" type="number" name="adultsTransport" id="" min="1" placeholder="adults" value="adultsTransport">
+                <!-- <input id="voyageur" type="number" name="voyageurs" id="" min="1" placeholder="children" value="children"> -->
+
+            </div>
+            <div class="button">
+                <button class="btn-form" type="submit" value="Rechercher">
+                    Valider
+                </button>
+            </div>
+            <div>
+                <img id="filter" src="images/filter.svg" alt="">
+            </div>
+        </div>
+    </form>
+
+    <form id='formHebergement' class="" action="<?= URL ?>resultHebergement" method="post">
+        <div class="search">
+<!--             
+            <input id="dateRetour" type="date" name="departureDateHebergement" placeholder="Date de départ" value="departureDateHebergement"> -->
+            <input required="" name = "departureDateHebergement" placeholder="Date de départ"  type="text" class="form-control" onfocus="(this.type='date')"/>
+
+            <!-- <input id="dateRetour" type="date" name="returnDateHebergement" placeholder="returnDate" value="returnDateHebergement"> -->
+            <input required="" name = "returnDateHebergement" placeholder="Date de retour"  type="text" class="form-control" onfocus="(this.type='date')"/>
+        </div>
+        <div class="box">
+            <div class="date">
+                <select name="destinationCityHebergement" id="destination" type="text" placeholder="Destination">
+                    <option value="">--Ville d'arrivée--</option>
+                    <option value="CDG Paris      23631">Paris</option>
+                    <option value="BRU Bruxelle   23711">Bruxelle</option>
+                    <option value="VNO Vilnius    33401">Vilnius</option>
+                    <option value="TLS Toulouse   23761">Toulouse</option>
+                    <option value="TLN Toulon     4908">Toulon</option>
+                </select>
+
+                <input id="voyageur" type="number" name="adultsHebergement" id="" min="1" placeholder="adults" value="adultsHebergement">
+                <!-- <input id="voyageur" type="number" name="voyageurs" id="" min="1" placeholder="children" value="children"> -->
+
+            </div>
+            <div class="button">
+                <button class="btn-form" type="submit" value="Rechercher">
+                    Valider
+                </button>
+            </div>
+            <div>
+                <img id="filter" src="images/filter.svg" alt="">
             </div>
         </div>
     </form>

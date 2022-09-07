@@ -198,12 +198,14 @@ class TransportManager
         $originCityBusId = substr($originCityBus, 15);
         $endCityBusId = substr($endCityBus, 15);
 
-        // print_r($originCityBusId);
-        // print_r($endCityBusId);
-        // print_r($departure);
-        // print_r($adults);
 
-        // die();
+
+        print_r($originCityBusId . "/");
+        print_r($endCityBusId . "/");
+        print_r($departure . "/");
+        print_r($adults . "/");
+
+        die();
 
 
         curl_setopt_array($curl, [
