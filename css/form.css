@@ -78,10 +78,15 @@
   display: flex;
   flex-direction: column;
 }
-.button {
+.btn-valider-accueil {
   position: relative;
   top: 40px;
 }
+
+.btn-valider-accueil {
+  float: right;
+}
+
 .button button {
   background-color: #f9b532;
   padding: 10px;
@@ -171,6 +176,7 @@
 }
 .box {
   display: flex;
+  justify-content: start;
 }
 
 /* afficher par défault */
