@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="css/slider.style.css">
-    <link rel="stylesheet" type="text/css" href="css/searchForm.style.css">
+
 
     <link rel="stylesheet" type="text/css" href="css/form.css">
 
@@ -29,14 +29,15 @@
 </head>
 
 <body>
-    <?php require_once("views/commons/menu.php") ?>
+    <?php require_once("views/commons/header.php") ?>
     <div>
-        <h1><?= $titre ?></h1>
+
         <?= $content ?>
     </div>
 
 
     <?php require_once("views/commons/footer.php") ?>
+    <script src="utils/js/form.js"></script>
 </body>
 
 </html>

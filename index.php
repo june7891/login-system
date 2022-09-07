@@ -12,17 +12,25 @@ $_SESSION["apikey"] = "X-RapidAPI-Key: dcaf319b7cmsh60561c7268d4e4ap1a2672jsna26
 require_once "controllers/UserController.php";
 require_once "controllers/ImageController.php";
 require_once "controllers/MainController.php";
-require_once 'controllers/tripControllers.php';
+require_once 'controllers/tripController.php';
 require_once 'controllers/TransportController.php';
+<<<<<<< HEAD
 require_once 'controllers/ResultsSearchTripsController.php';
+=======
+require_once 'controllers/HebergementController.php';
+>>>>>>> 8988c21082cc1dc8bb2bf97bb9b6db3d1819ed94
 
 
 $userController = new UserController();
 $imageController = new ImageController();
 $mainController = new MainController();
-$tripController = new TripControllers();
+$tripController = new TripController();
 $transportController = new TransportController();
+<<<<<<< HEAD
 $resultsSearchTripsController = new ResultsSearchTripsController();
+=======
+$hebergementController = new HebergementController();
+>>>>>>> 8988c21082cc1dc8bb2bf97bb9b6db3d1819ed94
 
 
 
@@ -37,8 +45,22 @@ try {
             case "accueil":
                 $mainController->getPageAccueil();
                 break;
+<<<<<<< HEAD
             case "remy":
                echo "youpi";
+=======
+            case "about":
+                $mainController->getPageAbout();
+                break;
+            case "contact":
+                $mainController->getPageContact();
+                break;
+            case "mailSent":
+                $mainController->getPageMailSent();
+                break;
+            case "app":
+                $mainController->getPageApp();
+>>>>>>> 8988c21082cc1dc8bb2bf97bb9b6db3d1819ed94
                 break;
             case "login":
                 $userController->getLoginPage();
@@ -62,14 +84,15 @@ try {
                 switch ($url[1]) {
                     case "show":
                         $userController->getUserAccount();
-                    case "updateUsernameEmail":
-                        $userController->updateUsernameEmail();
-                        break;
+
                     case "modifyAccount":
                         $userController->getUpdateAccountTemplate();
                         break;
                     case "updateAccount":
                         $userController->updateAccount($url[2]);
+                        break;
+                    case "deleteAccount":
+                        $userController->deleteAccount($url[2]);
                         break;
                 }
 
@@ -107,8 +130,8 @@ try {
                         throw new Exception("La page n'existe pas");
                 }
                 break;
-            case 'resultHotels':
-                $hotelsController->getHotelsByLocation();
+            case 'resultHebergement':
+                $hebergementController->getHebergementsByLocation();
                 break;
             case 'resultTrip':
                 $tripController->getTripsByDepartureReturnPeople();

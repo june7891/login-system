@@ -1,16 +1,18 @@
 <?php ob_start();?>
 
 
-    <button type="submit"><a href="<?= URL ?>gallery/show">Revenir à la gallerie</a></button>
+    <a href="<?= URL ?>gallery/show"><button class="btn-form" type="submit">Revenir</button></a>
 
 
 
 
 <section class="section1" id="section1">
 
-    <div class="container">
+    <div class="container-gallery">
 
-    <?php foreach($tabImages as $image) : ?>
+    <?php if(!empty($tabImages)) {
+
+    foreach($tabImages as $image) : ?>
     
      
         <div class="col">
@@ -47,6 +49,10 @@
             </div>
         </div>
         <?php endforeach; ?>
+        <?php } else {?>
+            <h2>Tu n'as rien à modifier!</h2> 
+            <a href="<?= URL ?>gallery/add"><button class="btn">Ajouter</button></a>
+        <?php } ?>
 
     </div>
 </section>

@@ -16,19 +16,14 @@ class TransportController
         $this->transportManager = new TransportManager();
     }
 
-    public function getForm()
-    {
-
-        require "views/formTransport.php";
-    }
 
     public function getBusByLocation()
     {
-        $originCityBus =  $_POST['originCity'] ?? '';
-        $adults =  $_POST['adults'] ?? '';
-        $departure =  $_POST['departureDate'] ?? '';
-        $endCityBus =  $_POST['destinationCity'] ?? '';
-        $children =  $_POST['children'] ?? '';
+        $originCityBus =  $_POST['originCityTransport'] ?? '';
+        $adults =  $_POST['adultsTransport'] ?? '';
+        $departure =  $_POST['departureDateTransport'] ?? '';
+        $endCityBus =  $_POST['destinationCityTransport'] ?? '';
+        $children =  $_POST['childrenTransport'] ?? '';
 
 
         $result = $this->transportManager->getBusByOriginCity($originCityBus, $departure, $adults, $children, $endCityBus);
@@ -40,10 +35,10 @@ class TransportController
 
     public function getCarsByLocation()
     {
-        $originCity =  $_POST['originCity'] ?? '';
-        $departureDate =  $_POST['departureDate'] ?? '';
-        $returnDate =  $_POST['returnDate'] ?? '';
-        $destinationCity =  $_POST['destinationCity'] ?? '';
+        $originCity =  $_POST['originCityTransport'] ?? '';
+        $departureDate =  $_POST['departureDateTransport'] ?? '';
+        $returnDate =  $_POST['returnDateTransport'] ?? '';
+        $destinationCity =  $_POST['destinationCityTransport'] ?? '';
         $result = $this->transportManager->getCarsByLocation($originCity, $departureDate, $returnDate, $destinationCity);
         return $result;
         //require_once './views/result.php';
@@ -52,12 +47,12 @@ class TransportController
     public function getFlightsByDepartureReturnPeople()
     {
 
-        $departureDate =  $_POST['departureDate'] ?? '';
-        $returnDate = $_POST['returnDate'] ?? '';
-        $adults = $_POST['adults'] ?? '';
-        $children = $_POST['children'] ?? '';
-        $originCity = $_POST['originCity'] ?? '';
-        $destinationCity = $_POST['destinationCity'] ?? '';
+        $departureDate =  $_POST['departureDateTransport'] ?? '';
+        $returnDate = $_POST['returnDateTransport'] ?? '';
+        $adults = $_POST['adultsTransport'] ?? '';
+        $children = $_POST['childrenTransport'] ?? '';
+        $originCity = $_POST['originCityTransport'] ?? '';
+        $destinationCity = $_POST['destinationCityTransport'] ?? '';
 
 
 
@@ -73,7 +68,7 @@ class TransportController
         $resultGlobalTransports = $this->getFlightsByDepartureReturnPeople() + $this->getCarsByLocation() + $this->getBusByLocation();
         //$resultGlobalTransports =$this->getBusByLocation();
         //$resultGlobalTransports = $this->getCarsByLocation() ; 
-        $resultJsonTransports = json_encode($resultGlobalTransports, true);
+        $results = json_encode($resultGlobalTransports, true);
 
         //print_r($resultGlobalTransports["getCarsByLocation"]);
         //die(); 

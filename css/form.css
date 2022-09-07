@@ -45,7 +45,8 @@
   color: #fff;
   text-decoration: none;
 }
-.form {
+.form-search {
+  background-color: #41c2f4;
   width: 65%;
   height: 300px;
   margin: 0 auto;
@@ -60,10 +61,10 @@
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
 }
-form input {
+.form-search form input {
   font-size: 15px;
 }
-.form input {
+.form-search input {
   height: 40px;
   /* border: #000 solid 1px; */
   font-size: 15px;
@@ -73,7 +74,7 @@ form input {
   margin-bottom: 10px;
 }
 
-.container {
+.container-search {
   display: flex;
   flex-direction: column;
 }
@@ -171,6 +172,18 @@ form input {
 .box {
   display: flex;
 }
+
+/* afficher par défault */
+#formTrip {
+  display: block;
+}
+#formTransport {
+  display: none;
+}
+
+#formHebergement {
+  display: none;
+}
 #filtre {
   /*modalaucentre*/
   position: fixed;
@@ -178,12 +191,13 @@ form input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30%;
+  max-width: 50%;
   height: 1000px;
   background-color: rgba(255, 255, 255);
   z-index: 50;
   display: none;
   border-radius: 5px;
+  overflow: scroll;
 }
 
 #filter {

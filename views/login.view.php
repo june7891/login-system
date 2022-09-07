@@ -6,7 +6,7 @@
 
 
     <div class="form">
-    <form method="post" action="<?= URL ?>connection">
+    <form  method="post" action="<?= URL ?>connection">
     <?php flash('login')?>
         <input type="text" name="username/email"  
         placeholder="pseudo/email">

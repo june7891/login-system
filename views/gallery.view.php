@@ -2,7 +2,7 @@
 
 
 <div class="profil">
-    <h1>Ta gallerie </br>
+    <h1>Ta galerie </br>
         de souvenirs</h1>
     <div class="profil-photo">
         <div class="username"><img src="<?php if (!empty($user['profilePhoto'])) { ?>
@@ -17,23 +17,28 @@
 </div>
 <div class="share">
     <h1>Partage tes photos !</h1>
-   <a href="<?= URL ?>gallery/add"><button class="btn">Envoyer</button></a>
+   <a href="<?= URL ?>gallery/add"><button class="btn">Ajouter</button></a>
     <a href="<?= URL ?>gallery/modify"><button class="btn">Modifier</button></a>
 </div>
 
 
 <section class="section1" id="section1">
 
-    <div class="container">
+    <div class="container-gallery">
 
-        <?php foreach ($tabImages as $image) : ?>
+ <?php if(!empty($tabImages)) {
+        foreach ($tabImages as $image) : ?>
 
 
             <div class="col">
                 <div class="card">
                     <div class="photo-container">
+                       
+   <img src="<?= URL ?>public/images/<?php echo $image['image_name'] ?>" style="">
 
-                        <img src="<?= URL ?>public/images/<?php echo $image['image_name'] ?>" style="">
+                    
+
+                     
 
                     </div>
 
@@ -44,6 +49,9 @@
             </div>
         <?php endforeach; ?>
 
+        <?php } else {?>
+            <h2>Ta galerie de photos est vide!</h2> 
+        <?php } ?>
     </div>
 </section>
 
@@ -56,3 +64,7 @@
 $content = ob_get_clean();
 $titre = "Gallery";
 require "views/commons/template.php";
+
+
+
+   

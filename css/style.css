@@ -34,6 +34,7 @@ input,
 ::placeholder {
   font-family: "Quicksand", sans-serif;
 }
+
 .btn {
   background-color: #f9b532;
   width: 300px;
@@ -47,6 +48,12 @@ input,
   font-weight: 600;
   text-decoration: none;
   box-shadow: -10px 10px 2px 1px black;
+}
+
+.btn:hover {
+  color: #F45741;
+  box-shadow: -10px 10px 2px 1px #F45741;
+
 }
 
 .btn-form {
@@ -281,6 +288,8 @@ nav {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+
+
 form {
   display: flex;
   flex-direction: column;
@@ -387,6 +396,16 @@ input {
 
 /* style account */
 
+.container-account{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 30px;
+  
+}
+
 .form-account {
   margin: 0 10%;
   margin-bottom: 300px;
@@ -405,14 +424,16 @@ input {
   border-radius: 10px;
 }
 
+.right input {
+  display: block;
+  
+}
+
+
 .form-account input {
   width: 400px;
   height: 50px;
 }
-​
-
-
-
 
 /* gallery style  */
 
@@ -481,7 +502,7 @@ h1 {
 .section1 {
   background-color: #41c2f4;
   width: 75%;
-  display: block;
+
   margin: auto;
   margin-top: 60px;
   margin-bottom: 20px;
@@ -492,7 +513,7 @@ h1 {
   box-shadow: -10px 10px 2px 1px #69dc8a;
 }
 
-.container {
+.container-gallery {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -507,10 +528,6 @@ h1 {
   margin-top: 25px;
   border-radius: 5%;
   border: 2px solid #000;
-  -webkit-border-radius: 5%;
-  -moz-border-radius: 5%;
-  -ms-border-radius: 5%;
-  -o-border-radius: 5%;
 }
 
 .photo-container img {
@@ -572,3 +589,24 @@ footer a {
   justify-content: center;
   margin-bottom: 15px;
 }
+
+
+/* style page app */
+
+
+.images-app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 84px;
+}
+
+
+ .images-app img {
+  width: 20%;
+  height: 10%;
+  border-radius: 15px;
+  
+} 
+

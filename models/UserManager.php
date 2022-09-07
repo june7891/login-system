@@ -102,4 +102,13 @@ class UserManager extends Model{
 
 
 
+   public function deleteDbAccount($id_user) {
+    $req = "DELETE from users WHERE id= :id_user";
+    $stmt = $this->getConnexion()->prepare($req);
+    $stmt->bindValue(":id_user",$id_user,PDO::PARAM_INT);
+    $stmt->execute();   
+    $stmt->closeCursor();
+
+   }
+
 }

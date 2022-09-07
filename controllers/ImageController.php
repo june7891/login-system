@@ -52,7 +52,7 @@ class ImageController{
         $image = $this->imageManager->getImage($id_image);
         unlink("public/images/".$image);
         $this->imageManager->deleteDbImage($id_image);
-        header('Location: '.URL.'gallery/show');
+        header('Location: '.URL.'gallery/modify');
     
     }else {
         throw new Exception("Access forbiden");
@@ -136,7 +136,7 @@ public function modification($id_image){
             
 
          
-            header('Location: '.URL.'gallery/show');
+            require_once "views/imageModification.view.php";
         } else {
             throw new Exception("Vous n'avez pas le droit d'être là ! ");
         }

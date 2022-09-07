@@ -10,7 +10,7 @@
         <input type="text" name="title" placeholder="titre">
         <input type='file' name='image' multiple />
 
-        <button type="submit" name="submit"> Envoyer</button>
+        <button class="btn" type="submit" name="submit"> Envoyer</button>
 
     </form>
 </div>
