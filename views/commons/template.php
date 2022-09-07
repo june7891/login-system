@@ -36,6 +36,7 @@
 
 
     <?php require_once("views/commons/footer.php") ?>
+    <script src="utils/js/form.js"></script>
 </body>
 
 </html>

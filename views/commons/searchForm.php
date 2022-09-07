@@ -3,7 +3,7 @@
     <a id="hebergement" class="typeTravel2 travelTract" href="#">Hébergement </a>
     <a id="transport" class="typeTravel2" href="#">Transport</a>
 </div>
-<div class="form container">
+<div class="form-search container-search">
     <form id='formUrl' class="" action="<?= URL ?>resultTrip" method="post">
         <div class="search">
             <select id="depart" type="text" name="originCity">
@@ -34,7 +34,7 @@
 
             </div>
             <div class="button">
-                <button type="submit" value="Rechercher">
+                <button class="btn-form" type="submit" value="Rechercher">
                     Valider
                 </button>
             </div>
