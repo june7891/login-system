@@ -105,12 +105,14 @@ class UserController{
 
         if(Security::verifAccessSession()){
             $id_user = (int)Security::secureHTML($_POST['id_user']);
+            $email = Security::secureHTML($_POST['email']);
+            $username = Security::secureHTML($_POST['pseudo']);
             $firstname = Security::secureHTML($_POST['firstname']);
             $lastname = Security::secureHTML($_POST['lastname']);
             $phoneNumber = Security::secureHTML($_POST['phoneNumber']);
             $dateOfBirth = Security::secureHTML($_POST['dateOfBirth']);
             $address = Security::secureHTML($_POST['address']);
-            $gender = Security::secureHTML($_POST['gender']);
+            $occupation = Security::secureHTML($_POST['occcupation']);
 
 
             $profilePhoto=$this->userManager->getProfilePhoto($id_user);
@@ -119,7 +121,7 @@ class UserController{
                 $profilePhoto = ajoutImage($_FILES['image'],$repertoire);
             }
          
-            $this->userManager->updateDbAccount($id_user, $firstname, $lastname, $phoneNumber, $dateOfBirth, $address, $gender, $profilePhoto);
+            $this->userManager->updateDbAccount($id_user, $email, $username, $occupation, $firstname, $lastname, $phoneNumber, $dateOfBirth, $address, $profilePhoto);
           
 
             $user= $this->userManager->getUserById($id_user);

@@ -1,0 +1,34 @@
+.container-advantages {
+  background-color: #69dc8a;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 2%;
+  border-radius: 20px;
+ 
+  box-shadow: -10px 10px 2px 1px #41c2f4;
+}
+
+.container-advantages .container {
+     justify-content: space-around;
+     gap: 150px;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.icone {
+  width: 200px;
+  height: 200px;
+  flex-direction: column;
+  text-align: center;
+}
+.icone p {
+  width: 215px;
+  font-weight: 700;
+  margin-top: 30px;
+
+}
+
+.icone img {
+  height: 70px;
+  cursor: pointer;
+}

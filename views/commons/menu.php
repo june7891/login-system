@@ -11,16 +11,16 @@
                 <?php if (!Security::verifAccessSession()) : ?>
                     <ul>
                         <a href="<?= URL ?>login">
-                            <li>Login</li>
+                            <li>Se connecter</li>
                         </a>
                         <a href="<?= URL ?>signup">
-                            <li>Sign Up</li>
+                            <li>S'inscrire</li>
                         </a>
                     </ul>
         </div>
 
         <div class="logo">
-            <img src="./images/logo.svg" alt="">
+            <img src="<?php URL ?>images/logo.svg" alt="">
         </div>
         <div class="login">
             <a href="<?= URL ?>account/show"><img src="<?= URL ?>/images/login.svg" alt=""></a>
