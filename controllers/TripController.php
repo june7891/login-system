@@ -2,7 +2,7 @@
 
 require_once "models/TripManager.php";
 
-class TripControllers
+class TripController
 {
 
     private $TripManager;
@@ -12,11 +12,6 @@ class TripControllers
         $this->tripManager = new TripManager();
     }
 
-    public function getForm()
-    {
-
-        require "views/formTrip.php";
-    }
     public function getTripsByDepartureReturnPeople()
     {
         $departureDate =  $_POST['departureDate'] ?? '';

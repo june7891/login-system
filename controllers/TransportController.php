@@ -16,11 +16,6 @@ class TransportController
         $this->transportManager = new TransportManager();
     }
 
-    public function getForm()
-    {
-
-        require "views/formTransport.php";
-    }
 
     public function getBusByLocation()
     {
@@ -73,7 +68,7 @@ class TransportController
         $resultGlobalTransports = $this->getFlightsByDepartureReturnPeople() + $this->getCarsByLocation() + $this->getBusByLocation();
         //$resultGlobalTransports =$this->getBusByLocation();
         //$resultGlobalTransports = $this->getCarsByLocation() ; 
-        $resultJsonTransports = json_encode($resultGlobalTransports, true);
+        $results = json_encode($resultGlobalTransports, true);
 
         //print_r($resultGlobalTransports["getCarsByLocation"]);
         //die(); 

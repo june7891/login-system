@@ -31,13 +31,16 @@ var formUrl = document.getElementById("formUrl");
 
 hebergement.onclick = () => {
   depart.style.display = "none";
-  destination.style.display = "none";
+  destination.style.display = "";
   transport.style.backgroundColor = "#69DC8A";
   hebergement.style.backgroundColor = "#F9B532";
   sejour.style.backgroundColor = "#69DC8A";
 
   filtreTransport.style.display = "none";
   filtreHebergement.style.display = "";
+  //à changer
+  formUrl.action =
+    "http://localhost/ecolotrip-git/login-system/resultHebergement";
 };
 
 //Transport
@@ -51,7 +54,9 @@ transport.onclick = () => {
 
   filtreTransport.style.display = "";
   filtreHebergement.style.display = "none";
-  formUrl.action = "http://localhost/login-system/resultTransport";
+  //à changer
+  formUrl.action =
+    "http://localhost/ecolotrip-git/login-system/resultTransport";
   // formUrl.action = "<?= URL ?>resultTrip";
 };
 
@@ -67,5 +72,6 @@ sejour.onclick = () => {
   filtreTransport.style.display = "";
   filtreHebergement.style.display = "";
 
-  formUrl.action = "http://localhost/login-system/resultTrip";
+  //à changer
+  formUrl.action = "http://localhost/ecolotrip-git/login-system/resultTrip";
 };
