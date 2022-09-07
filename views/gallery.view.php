@@ -50,7 +50,7 @@
         <?php endforeach; ?>
 
         <?php } else {?>
-            <h2>Ta galérie de photos est vide!</h2> 
+            <h2>Ta galerie de photos est vide!</h2> 
         <?php } ?>
     </div>
 </section>
