@@ -65,7 +65,7 @@ switch ($vartest2) {
 
 <div class="subtext">
     <a id="sejours" class="typeTravel" href="#">Séjours</a>
-    <a id="hebergement" class="typeTravel2 travelTract" href="#">Hébergement </a>
+    <a id="hebergement" class="typeTravel2 travelTract" href="#">Hébergement!! </a>
     <a id="transport" class="typeTravel2" href="#">Transport</a>
 </div>
 <div class="form container formtrip">
