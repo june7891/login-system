@@ -51,6 +51,9 @@ class TripManager
 
         curl_close($curl);
 
+        print_r(($resultFlights1));
+        die();
+
 
         //---------------------------------------Infos à récuperer de l'appel---------------------------------------
 
@@ -168,6 +171,8 @@ class TripManager
         $resultHotelDetail = curl_exec($curl);
         $errHotel = curl_error($curl);
 
+        print_r($resultHotelDetail);
+        die();
         curl_close($curl);
 
         $formatTabForHotelsDetail = json_decode($resultHotelDetail, true);
@@ -231,6 +236,8 @@ class TripManager
         $formatTabFlight2 = json_decode($resultFlights2, true);
 
         curl_close($curl);
+
+        // print_r($resultFlights2 ); die();
 
 
 

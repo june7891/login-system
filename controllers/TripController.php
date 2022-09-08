@@ -29,9 +29,10 @@ class TripController
 
 
 
+
         //
         // $JsonTripResult = json_encode($result,true);
-        require_once './views/resultTrip.php';
+        // require_once './views/resultTrip.php';
         require_once './views/resultsSearchTrips.php';
     }
 }

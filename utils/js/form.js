@@ -75,5 +75,5 @@ sejour.onclick = () => {
   filtreHebergement.style.display = "";
 
   //à changer
-  formUrl.action = "http://localhost/ecolotrip-git/login-system/resultTrip";
+  formUrl.action = "http://localhost/ecolotrip-git/login-system/resultsSearchTrips";
 };
