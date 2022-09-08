@@ -1,0 +1,19 @@
+.formtrip {
+  height: auto;
+}
+.search-trip {
+  display: flex;
+  flex-wrap: wrap;
+}
+.searchtripeur {
+  margin: auto;
+  max-width: 150px;
+  margin: 5px;
+}
+.searchtripeur input {
+  max-width: 150px;
+}
+
+#value {
+  font-size: 10px;
+}
