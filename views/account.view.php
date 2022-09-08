@@ -32,7 +32,7 @@
 
 <div class="share">
     <h1>Fais ta propre carte de Triper!</h1>
-    <a href="<?= URL ?>account/cardTriper/<?= $id?>"><button class="btn">Personnaliser</button></a>
+    <a href="<?= URL ?>account/cardTriper/<?= $id ?>"><button class="btn">Personnaliser</button></a>
 </div>
 
 
@@ -45,28 +45,28 @@
         <div class="left">
 
 
-            <form action="<?= URL ?>account/updateAccount/<?= $_SESSION['id'] ?>" method="post" enctype='multipart/form-data'>
+            <form action="<?= URL ?>account/show/updateAccount" method="post" enctype='multipart/form-data'>
 
-                <input type="hidden" name="id_user" value="<?= $_SESSION['id'] ?>" />
+                <input type="hidden" name="id_user" value="<?= $_SESSION['id'] ?? "" ?>" />
 
 
                 <label for="pseudo">pseudo</label>
-                <input type="text" name="pseudo" id="pseudo" value="<?= $username ?>">
+                <input type="text" name="pseudo" id="pseudo" value="<?= $username ?? "" ?>">
 
 
                 <label for="lastname">nom :</label>
-                <input type="text" name="lastname" id="lastname" value="<?= $user['lastname'] ?>">
+                <input type="text" name="lastname" id="lastname" value="<?= $user['lastname'] ?? "" ?>">
 
                 <label for="firstname">prénom :</label>
-                <input type="text" name="firstname" id="pseudo" value="<?= $user['firstname']  ?>">
+                <input type="text" name="firstname" id="pseudo" value="<?= $user['firstname'] ?? ""  ?>">
                 <label for="phoneNumber">téléphone</label>
-                <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" value="<?= $user['phoneNumber']  ?>">
+                <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" value="<?= $user['phoneNumber'] ?? ""  ?>">
 
                 <label for="dateOfBirth">date de naissance</label>
-                <input type="text" name="dateOfBirth" id="dateOfBirth" value="<?= $user['dateOfBirth'] ?>">
+                <input type="text" name="dateOfBirth" id="dateOfBirth" value="<?= $user['dateOfBirth'] ?? "" ?>">
 
                 <label for="address">adresse</label>
-                <textarea rows="10" cols="57" name="address" id="address" value="<?= $user['address'] ?>"></textarea>
+                <textarea rows="10" cols="57" name="address" id="address" value="<?= $user['address'] ?? "" ?>"></textarea>
 
         </div>
 
@@ -84,9 +84,10 @@
             <label for="image">photo de profil</label>
             <p><img src="<?= URL ?>public/images/<?php echo $user['profilePhoto'] ?>" alt="" style="width:50px; height:50px; border-radius: 10px"> </p>
             <input class="btn-form" src="" type='file' name='image' multiple />
+            
             <button class="btn-form" type="submit">Modifier</button>
             </form>
-            <a href="<?php URL ?>deleteAccount/<?php $id?>" onClick="return confirm('Veux-tu vraiment supprimer ton compte ?');">supprimer mon compte</a>
+            <a href="<?php URL ?>deleteAccount/<?php $id ?>" onClick="return confirm('Veux-tu vraiment supprimer ton compte ?');">supprimer mon compte</a>
         </div>
 
     </div>

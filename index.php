@@ -32,7 +32,7 @@ try {
     if (empty($_GET['page'])) {
         throw new Exception("La page n'existe pas");
     } else {
-        $url = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
+        $url = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL)) ?? "";
         if (empty($url[0])) throw new Exception("La page n'existe pas");
         switch ($url[0]) {
             case "accueil":
@@ -65,15 +65,23 @@ try {
             case "connection":
                 $userController->connection();
                 break;
-            case "homepage":
-                $userController->getUserHomepage();
-                break;
+
             case "account":
                 switch ($url[1]) {
                     case "show":
-                        $userController->getUserAccount();
-                    case "updateAccount":
-                        $userController->updateAccount($url[2]);
+
+
+                        switch ($url[2]) {
+                            case "profile":
+                                $userController->getUserAccount();
+                                break;
+                            case "updateAccount":
+                                $userController->updateAccount();
+                                break;
+                            default:
+                                throw new Exception("La page n'existe pas");
+                        }
+
                         break;
                     case "deleteAccount":
                         $userController->deleteAccount($url[2]);
@@ -81,6 +89,8 @@ try {
                     case "cardTriper":
                         $userController->getCardTriper();
                         break;
+                    default:
+                        throw new Exception("La page n'existe pas");
                 }
 
                 break;

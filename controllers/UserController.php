@@ -94,19 +94,19 @@ class UserController
 
 
 
-    public function updateAccount($id_user)
+    public function updateAccount()
     {
 
         if (Security::verifAccessSession()) {
-            $id_user = (int)Security::secureHTML($_POST['id_user']);
-            $email = Security::secureHTML($_POST['email']);
-            $username = Security::secureHTML($_POST['pseudo']);
-            $firstname = Security::secureHTML($_POST['firstname']);
-            $lastname = Security::secureHTML($_POST['lastname']);
-            $phoneNumber = Security::secureHTML($_POST['phoneNumber']);
-            $dateOfBirth = Security::secureHTML($_POST['dateOfBirth']);
-            $address = Security::secureHTML($_POST['address']);
-            $occupation = Security::secureHTML($_POST['occupation']);
+            $id_user = (int)Security::secureHTML($_POST['id_user']) ?? "";
+            $email = Security::secureHTML($_POST['email']) ?? "";
+            $username = Security::secureHTML($_POST['pseudo']) ?? "";
+            $firstname = Security::secureHTML($_POST['firstname']) ?? "";
+            $lastname = Security::secureHTML($_POST['lastname']) ?? "";
+            $phoneNumber = Security::secureHTML($_POST['phoneNumber']) ?? "";
+            $dateOfBirth = Security::secureHTML($_POST['dateOfBirth']) ?? "";
+            $address = Security::secureHTML($_POST['address']) ?? "";
+            $occupation = Security::secureHTML($_POST['occupation']) ?? "";
 
 
             $profilePhoto = $this->userManager->getProfilePhoto($id_user);
@@ -124,7 +124,7 @@ class UserController
 
             // require "views/account.view.php";
 
-            header('Location: ' . URL . 'account/show');
+            header('Location: ' . URL . 'account/show/profile');
         } else {
             throw new Exception("Vous n'avez pas le droit d'être là ! ");
         }
@@ -177,11 +177,11 @@ class UserController
     public function deconnection()
     {
         session_destroy();
-        header('Location: ' . URL . "login");
+        header('Location: ' . URL . "accueil");
     }
 
 
- 
+
 
 
     // mot de passe oublié
@@ -223,10 +223,12 @@ class UserController
     {
 
         if (Security::verifAccessSession()) {
-             $id_user = (int)Security::secureHTML($_SESSION['id']);
-       $user = $this->userManager->getUserById($id_user);
-       require "views/cardTriper.view.php";
+            $id_user = (int)Security::secureHTML($_SESSION['id']);
+            $user = $this->userManager->getUserById($id_user);
+            require "views/cardTriper.view.php";
+        } else {
+            header('Location: ' . URL . "login"); 
         }
-        header('Location: ' . URL . "login");
+       
     }
 }

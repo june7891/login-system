@@ -42,7 +42,7 @@
             <a href="<?= URL ?>account/cardTriper">
                 <li>Ta carte de Triper</li>
             </a>
-            <a href="<?= URL ?>account/show">
+            <a href="<?= URL ?>account/show/profile">
                 <li>Ton profil</li>
             </a>
             <a href="<?= URL ?>logout">
