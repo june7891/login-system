@@ -77,7 +77,7 @@
                 <!-- <input id="voyageur" type="number" name="voyageurs" id="" min="1" placeholder="children" value="children"> -->
 
             </div>
-            <div class="">
+            <div class="btn-valider-accueil">
                 <button class="btn-form" type="submit" value="Rechercher">
                     Valider
                 </button>
@@ -112,7 +112,7 @@
                 <!-- <input id="voyageur" type="number" name="voyageurs" id="" min="1" placeholder="children" value="children"> -->
 
             </div>
-            <div class="">
+            <div class="btn-valider-accueil">
                 <button class="btn-form" type="submit" value="Rechercher">
                     Valider
                 </button>
