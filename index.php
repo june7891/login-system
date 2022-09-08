@@ -69,9 +69,7 @@ try {
             case "connection":
                 $userController->connection();
                 break;
-            case "homepage":
-                $userController->getUserHomepage();
-                break;
+
             case "account":
                 switch ($url[1]) {
                     case "show":
