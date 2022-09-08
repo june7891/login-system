@@ -91,16 +91,7 @@ class UserController
         }
     }
 
-    public function getUpdateAccountTemplate()
-    {
-        if (Security::verifAccessSession()) {
-            $user = $this->userManager->getUserById($_SESSION['id']);
-            require "views/modify-account.view.php";
-        } else {
 
-            header('Location: ' . URL . "login");
-        }
-    }
 
 
     public function updateAccount($id_user)
@@ -115,36 +106,30 @@ class UserController
             $phoneNumber = Security::secureHTML($_POST['phoneNumber']);
             $dateOfBirth = Security::secureHTML($_POST['dateOfBirth']);
             $address = Security::secureHTML($_POST['address']);
-            $occupation = Security::secureHTML($_POST['occcupation']);
+            $occupation = Security::secureHTML($_POST['occupation']);
 
 
             $profilePhoto = $this->userManager->getProfilePhoto($id_user);
             if ($_FILES['image']['size'] > 0) {
                 $repertoire = "public/images/";
                 $profilePhoto = ajoutImage($_FILES['image'], $repertoire);
+                // error_reporting(E_ALL ^ E_NOTICE);
             }
 
-            $this->userManager->updateDbAccount($id_user, $email, $username, $occupation, $firstname, $lastname, $phoneNumber, $dateOfBirth, $address, $profilePhoto);
+            $this->userManager->updateDbAccount($id_user, $username, $email,  $firstname, $lastname, $dateOfBirth, $address, $phoneNumber, $occupation, $profilePhoto);
 
 
             $user = $this->userManager->getUserById($id_user);
 
 
-            require "views/account.view.php";
+            // require "views/account.view.php";
 
-            //header('Location: '.URL.'account/show');
+            header('Location: ' . URL . 'account/show');
         } else {
             throw new Exception("Vous n'avez pas le droit d'être là ! ");
         }
     }
 
-
-
-
-    public function updateUsernameEmail()
-    {
-        echo "modifier le pseudo ou mot de passe";
-    }
 
 
 
@@ -163,7 +148,7 @@ class UserController
         if (!empty($_POST['username/email']) && !empty($_POST["password"])) {
             $username = Security::secureHTML($_POST['username/email']);
             $email = Security::secureHTML($_POST['username/email']);
-            $password = Security::secureHTML($_POST['password']);
+            // $password = Security::secureHTML($_POST['password']);
 
             //vérifie si user existe
             if ($this->userManager->findUserByEmailOrUsername($username, $email)) {
@@ -196,23 +181,7 @@ class UserController
     }
 
 
-    // page d'accueil utilisateur
-
-
-
-    public function getUserHomepage()
-    {
-
-        if (Security::verifAccessSession()) {
-            //$username = $_SESSION['username'];
-            $user =  $this->userManager->getUserByid($_SESSION['id']);
-
-            require "views/homepage.view.php";
-        } else {
-            header('Location: ' . URL . "login");
-        }
-    }
-
+ 
 
 
     // mot de passe oublié
@@ -226,6 +195,38 @@ class UserController
 
     public function remindPasswordValidation()
     {
-        require "views/messageValidationPassword.view.php";
+        if (!empty($_POST['email'])) {
+            $email = $_POST['email'];
+            require "views/messageValidationPassword.view.php";
+        } else {
+            flash('remind', "Veuillez remplir tous les champs!");
+            require "views/remindPassword.view.php";
+        }
+    }
+
+
+
+    public function deleteAccount($id_user)
+    {
+
+
+        $id_user = (int)Security::secureHTML($_SESSION['id']);
+        $this->userManager->deleteDbAccount($id_user);
+        session_destroy();
+
+        require "views/accountDeleted.view.php";
+    }
+
+
+
+    public function getCardTriper()
+    {
+
+        if (Security::verifAccessSession()) {
+             $id_user = (int)Security::secureHTML($_SESSION['id']);
+       $user = $this->userManager->getUserById($id_user);
+       require "views/cardTriper.view.php";
+        }
+        header('Location: ' . URL . "login");
     }
 }

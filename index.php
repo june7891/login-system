@@ -44,6 +44,12 @@ try {
             case "contact":
                 $mainController->getPageContact();
                 break;
+            case "mailSent":
+                $mainController->getPageMailSent();
+                break;
+            case "app":
+                $mainController->getPageApp();
+                break;
             case "login":
                 $userController->getLoginPage();
                 break;
@@ -66,14 +72,14 @@ try {
                 switch ($url[1]) {
                     case "show":
                         $userController->getUserAccount();
-                    case "updateUsernameEmail":
-                        $userController->updateUsernameEmail();
-                        break;
-                    case "modifyAccount":
-                        $userController->getUpdateAccountTemplate();
-                        break;
                     case "updateAccount":
                         $userController->updateAccount($url[2]);
+                        break;
+                    case "deleteAccount":
+                        $userController->deleteAccount($url[2]);
+                        break;
+                    case "cardTriper":
+                        $userController->getCardTriper();
                         break;
                 }
 

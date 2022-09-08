@@ -2,7 +2,7 @@
 
 
 <div class="profil">
-    <h1>Ta gallerie </br>
+    <h1>Ta galerie </br>
         de souvenirs</h1>
     <div class="profil-photo">
         <div class="username"><img src="<?php if (!empty($user['profilePhoto'])) { ?>
@@ -50,7 +50,7 @@
         <?php endforeach; ?>
 
         <?php } else {?>
-            <h2>Ta galérie de photos est vide!</h2> 
+            <h2>Ta galerie de photos est vide!</h2> 
         <?php } ?>
     </div>
 </section>

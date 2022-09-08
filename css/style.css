@@ -50,6 +50,12 @@ input,
   box-shadow: -10px 10px 2px 1px black;
 }
 
+.btn:hover {
+  color: #F45741;
+  box-shadow: -10px 10px 2px 1px #F45741;
+
+}
+
 .btn-form {
   background-color: #f9b532;
   padding: 10px;
@@ -61,6 +67,12 @@ input,
   font-size: 20px;
   font-weight: 600;
   box-shadow: -10px 10px 2px 1px black;
+}
+
+.btn-form:hover {
+  color: #F45741;
+  box-shadow: -10px 10px 2px 1px #F45741;
+
 }
 
 ul {
@@ -424,6 +436,11 @@ input {
   height: 50px;
 }
 
+.form-account input::placeholder {
+  font-size: 22px;
+  
+}
+
 /* gallery style  */
 
 .profil {
@@ -578,3 +595,58 @@ footer a {
   justify-content: center;
   margin-bottom: 15px;
 }
+
+
+/* style page app */
+
+
+.images-app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 84px;
+}
+
+
+ .images-app img {
+  width: 20%;
+  height: 10%;
+  border-radius: 15px;
+  
+} 
+
+
+.card-triper-container {
+  text-align: center;
+}
+.card-triper {
+  background-image: url("../images/background-cardTriper.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 1200px;
+  width: 1000px;
+  box-shadow: -10px 10px 2px 1px #69dc8a;
+  border-radius: 5px;
+  display: inline-block;
+
+  
+}
+
+.bottom-card-triper {
+  height: 400px;
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: bold;
+
+  background-color: #69dc8a;
+  border-radius: 5px;
+  box-shadow: -10px 10px 2px 1px #41c2f4;
+}
+

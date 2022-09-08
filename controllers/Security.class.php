@@ -16,6 +16,6 @@ class Security{
             $_SESSION['account_created_at'] = $user->account_created_at;
             $_SESSION['firstname'] = $user->firstname;
 
-            header('Location: '.URL."homepage");
+            header('Location: '.URL."accueil");
     }
 }

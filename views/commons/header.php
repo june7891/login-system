@@ -10,6 +10,9 @@
             <ul id="menu">
                 <?php if (!Security::verifAccessSession()) : ?>
                     <ul>
+                        <a href="<?= URL ?>accueil">
+                            <li>Accueil</li>
+                        </a>
                         <a href="<?= URL ?>login">
                             <li>Se connecter</li>
                         </a>
@@ -30,20 +33,20 @@
 
 
         <ul>
-            <a href="<?= URL ?>remindPassword">
-                <li>Modifier mot de passe</li>
+            <a href="<?= URL ?>accueil">
+                <li>Accueil</li>
             </a>
             <a href="<?= URL ?>gallery/show">
-                <li>Ta galérie photos</li>
+                <li>Ta galerie photos</li>
             </a>
-            <a href="<?= URL ?>carteTriper/show">
+            <a href="<?= URL ?>account/cardTriper">
                 <li>Ta carte de Triper</li>
             </a>
             <a href="<?= URL ?>account/show">
                 <li>Ton profil</li>
             </a>
             <a href="<?= URL ?>logout">
-                <li>Logout</li>
+                <li>Se déconnecter</li>
             </a>
         </ul>
 
@@ -56,7 +59,7 @@
             <div class="icon-container">
                 <div class="loggedin-icon">
                     <div class="profile-photo">
-                       <a href="<?= URL ?>account/show"> <img src="https://picsum.photos/200/300" /></a> 
+                        <a href="<?= URL ?>account/show"> <img src="https://picsum.photos/200/300" /></a>
                     </div>
                 </div>
                 <p><?= $_SESSION['username'] ?></p>
