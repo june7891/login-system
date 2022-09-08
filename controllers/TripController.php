@@ -26,7 +26,7 @@ class TripController
         $result = $this->tripManager->getTripsByDepartureReturnPeople($departureDate, $returnDate, $adults, $children, $originCity, $destinationCity);
 
 
-       
+
 
 
         //

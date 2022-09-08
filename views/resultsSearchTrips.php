@@ -5,6 +5,7 @@ $dateretourmodif = strftime('%d-%m-%Y', strtotime($returnDate));
 $nbvoyageur = intval($adults) + intval($children);
 
 $vartest = substr($originCity, 0, 3);
+$vartest2 = substr($destinationCity, 0, 3);
 
 
 switch ($vartest) {
@@ -28,6 +29,28 @@ switch ($vartest) {
         break;
 }
 
+
+
+switch ($vartest2) {
+    case 'CDG':
+        $destinationCity = "Paris";
+        break;
+    case 'BRU':
+        $destinationCity = "Bruxelles";
+        break;
+    case 'VNO':
+        $destinationCity = "Vilnius";
+        break;
+    case 'TLS':
+        $destinationCity = "Toulouse";
+        break;
+    case 'TLN':
+        $destinationCity = "Toulon";
+        break;
+    default:
+        $destinationCity = "Inconnu";
+        break;
+}
 
 // CDG Paris      23631
 //                     "BRU Bruxelle   23711
@@ -64,7 +87,7 @@ switch ($vartest) {
             </div>
             <div class="searchtripeur">
                 <p>Date de retour</p>
-                <input style="font-size: 20px;" value=<?= $dateretourtmodif ?> readonly="readonly4">
+                <input style="font-size: 20px;" value=<?= $dateretourmodif ?> readonly="readonly4">
             </div>
             <div class="searchtripeur">
                 <p>Nb voyageurs</p>
