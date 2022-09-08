@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="css/newsletter.style.css">
     <link rel="stylesheet" type="text/css" href="css/about.style.css">
     <link rel="stylesheet" type="text/css" href="css/contact.style.css">
+   
 
 
     <title>Document</title>

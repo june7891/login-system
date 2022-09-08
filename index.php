@@ -71,15 +71,14 @@ try {
                 switch ($url[1]) {
                     case "show":
                         $userController->getUserAccount();
-
-                    case "modifyAccount":
-                        $userController->getUpdateAccountTemplate();
-                        break;
                     case "updateAccount":
                         $userController->updateAccount($url[2]);
                         break;
                     case "deleteAccount":
                         $userController->deleteAccount($url[2]);
+                        break;
+                    case "cardTriper":
+                        $userController->getCardTriper();
                         break;
                 }
 
