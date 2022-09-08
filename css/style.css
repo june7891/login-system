@@ -283,7 +283,6 @@ nav {
   -o-border-radius: 10px;
 }
 
-
 form {
   display: flex;
   flex-direction: column;
@@ -390,14 +389,12 @@ input {
 
 /* style account */
 
-.container-account{
-
+.container-account {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin: 50px 30px;
-  
 }
 
 .form-account {
@@ -420,9 +417,7 @@ input {
 
 .right input {
   display: block;
-  
 }
-
 
 .form-account input {
   width: 400px;
