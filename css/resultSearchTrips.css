@@ -13,3 +13,7 @@
 .searchtripeur input {
   max-width: 150px;
 }
+
+#value {
+  font-size: 10px;
+}

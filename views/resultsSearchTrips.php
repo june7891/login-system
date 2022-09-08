@@ -1,5 +1,42 @@
 <?php ob_start();
-require_once "./controllers/TripControllers.php"
+require_once "./controllers/TripController.php";
+$datedepartmodif = strftime('%d-%m-%Y', strtotime($departureDate));
+$dateretourmodif = strftime('%d-%m-%Y', strtotime($returnDate));
+$nbvoyageur = intval($adults) + intval($children);
+
+$vartest = substr($originCity, 0, 3);
+
+
+switch ($vartest) {
+    case 'CDG':
+        $originCity = "Paris";
+        break;
+    case 'BRU':
+        $originCity = "Bruxelles";
+        break;
+    case 'VNO':
+        $originCity = "Vilnius";
+        break;
+    case 'TLS':
+        $originCity = "Toulouse";
+        break;
+    case 'TLN':
+        $originCity = "Toulon";
+        break;
+    default:
+        $originCity = "Inconnu";
+        break;
+}
+
+
+// CDG Paris      23631
+//                     "BRU Bruxelle   23711
+//                     VNO Vilnius    33401
+//                     TLS Toulouse   23761
+//                     TLN Toulon     4908option>
+
+
+
 ?>
 
 
@@ -14,28 +51,28 @@ require_once "./controllers/TripControllers.php"
 
             <div class="searchtripeur">
                 <p>Départ</p>
-                <input readonly="readonly">
+                <input style="font-size: 20px;" value=<?= $originCity ?> readonly="readonly1">
             </div>
 
             <div class="searchtripeur">
                 <p>Destination</p>
-                <input readonly="readonly2">
+                <input style="font-size: 20px;" value=<?= $destinationCity ?> readonly="readonly2">
             </div>
             <div class="searchtripeur">
                 <p>Date de départ</p>
-                <input readonly="readonly3">
+                <input style="font-size: 20px;" value=<?= $datedepartmodif ?> readonly="readonly3">
             </div>
             <div class="searchtripeur">
                 <p>Date de retour</p>
-                <input readonly="readonly4">
+                <input style="font-size: 20px;" value=<?= $dateretourtmodif ?> readonly="readonly4">
             </div>
             <div class="searchtripeur">
                 <p>Nb voyageurs</p>
-                <input readonly="readonly5">
+                <input style="font-size: 20px;" value=<?= $nbvoyageur ?> readonly="readonly53">
             </div>
         </div>
         <div class="searchCard">
-            <?= $variableGloblaleVoyage ?>
+
 
 
         </div>
