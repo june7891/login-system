@@ -1,16 +1,17 @@
 <?php ob_start();?>
 
-
+<h1>T’as un trou de mémoire?</h1>
 
 <div class="form">
     
 
 <form method="post" action="<?= URL ?>remindPasswordValidation">
 <input type="hidden" name="type" value="remind">
+<p>Tu recevras un nouveau mot de passe temporaire par mail</p>
 <?php flash('remind') ?>
 
     <input type="email" name="email"  
-    placeholder="email">
+    placeholder="ton adresse e-mail">
     <button class="btn" type="submit" name="submit">Envoyer</button>
 </form>
 

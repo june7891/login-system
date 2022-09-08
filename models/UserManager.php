@@ -12,6 +12,7 @@ class UserManager extends Model{
     $statement->bindValue(":email",$email,PDO::PARAM_STR);
     $statement->bindValue(":password",$password,PDO::PARAM_STR);
     $statement->execute();
+    
     }
 
 
@@ -82,12 +83,12 @@ class UserManager extends Model{
 
 
    public function updateDbAccount($id_user, $username, $email, $firstname, $lastname, $phoneNumber, $dateOfBirth, $address, $gender, $profilePhoto){
-    $req ="UPDATE users SET firstname = :firstname, lastname = :lastname, phoneNumber = :phoneNumber, dateOfBirth = :dateOfBirth, address = :address, occupation = :occupation, profilePhoto = :profilePhoto WHERE id= :id_user";
+    $req ="UPDATE users SET username = :username, email = :email, firstname = :firstname, lastname = :lastname, dateOfBirth = :dateOfBirth, address = :address, phoneNumber = :phoneNumber, occupation = :occupation, profilePhoto = :profilePhoto, updated_at = NOW() WHERE id= :id_user";
     $stmt = $this->getConnexion()->prepare($req);
 
     $stmt->bindValue(":id_user",$id_user,PDO::PARAM_INT);
-    $stmt->bindValue(":firstname",$username,PDO::PARAM_STR);
-    $stmt->bindValue(":lastname",$email,PDO::PARAM_STR);
+    $stmt->bindValue(":username",$username,PDO::PARAM_STR);
+    $stmt->bindValue(":email",$email,PDO::PARAM_STR);
     $stmt->bindValue(":firstname",$firstname,PDO::PARAM_STR);
     $stmt->bindValue(":lastname",$lastname,PDO::PARAM_STR);
     $stmt->bindValue(":phoneNumber",$phoneNumber,PDO::PARAM_STR);

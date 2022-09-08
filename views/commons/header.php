@@ -39,7 +39,7 @@
             <a href="<?= URL ?>gallery/show">
                 <li>Ta galerie photos</li>
             </a>
-            <a href="<?= URL ?>carteTriper/show">
+            <a href="<?= URL ?>account/cardTriper">
                 <li>Ta carte de Triper</li>
             </a>
             <a href="<?= URL ?>account/show">
