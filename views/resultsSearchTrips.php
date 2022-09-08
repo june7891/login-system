@@ -1,5 +1,5 @@
 <?php ob_start();
-require_once "./controllers/TripController.php";
+$departureDate = $result[1];
 $datedepartmodif = strftime('%d-%m-%Y', strtotime($departureDate));
 $dateretourmodif = strftime('%d-%m-%Y', strtotime($returnDate));
 $nbvoyageur = intval($adults) + intval($children);
@@ -69,7 +69,7 @@ switch ($vartest2) {
     <a id="transport" class="typeTravel2" href="#">Transport</a>
 </div>
 <div class="form container formtrip">
-    <form id='formUrl' class="" action="<?= URL ?>resultTrip" method="post">
+    <form id='formUrl' class="" action="<?= URL ?>resultSearchTrip" method="post">
         <div class="search-trip">
 
             <div class="searchtripeur">
@@ -96,11 +96,13 @@ switch ($vartest2) {
         </div>
         <div class="searchCard">
 
-
-
-        </div>
+    </form>
 
 </div>
+
+</div>
+
+
 </div>
 </form>
 

@@ -4,7 +4,7 @@
     <a id="transport" class="typeTravel2" href="#">Transport</a>
 </div>
 <div class="form-search container-search">
-    <form id='formTrip' class="" action="<?= URL ?>resultTrip" method="post">
+    <form id='formTrip' class="" action="<?= URL ?>resultsSearchTrips" method="post">
         <div class="search">
             <select id="depart" type="text" name="originCityTrip">
                 <option value="">--Ville de départ--</option>
@@ -15,10 +15,10 @@
                 <option value="TLN Toulon     4908">Toulon</option>
             </select>
             <!-- <input id="dateRetour" type="date" name="departureDateTrip" placeholder="Date de départ" value="departureDateTrip"> -->
-            <input required="" name = "departureDateTrip" placeholder="Date de départ"  type="text" class="form-control" onfocus="(this.type='date')"/>
+            <input required="" name="departureDateTrip" placeholder="Date de départ" type="text" class="form-control" onfocus="(this.type='date')" />
 
             <!-- <input id="dateRetour" type="date" name="returnDateTrip" placeholder="returnDate" value="returnDateTrip"> -->
-            <input required="" name = "returnDateTrip" placeholder="Date de retour"  type="text" class="form-control" onfocus="(this.type='date')"/>
+            <input required="" name="returnDateTrip" placeholder="Date de retour" type="text" class="form-control" onfocus="(this.type='date')" />
         </div>
         <div class="box">
             <div class="date">
@@ -57,10 +57,10 @@
                 <option value="TLN Toulon     4908">Toulon</option>
             </select>
             <!-- <input id="dateRetour" type="date" name="departureDateTransport" placeholder="Date de départ" value="departureDateTransport"> -->
-            <input required="" name = "departureDateTransport" placeholder="Date de départ"  type="text" class="form-control" onfocus="(this.type='date')"/>
+            <input required="" name="departureDateTransport" placeholder="Date de départ" type="text" class="form-control" onfocus="(this.type='date')" />
 
             <!-- <input id="dateRetour" type="date" name="returnDateTransport" placeholder="returnDate" value="returnDateTransport"> -->
-            <input required="" name = "returnDateTransport" placeholder="Date de retour"  type="text" class="form-control" onfocus="(this.type='date')"/>
+            <input required="" name="returnDateTransport" placeholder="Date de retour" type="text" class="form-control" onfocus="(this.type='date')" />
         </div>
         <div class="box">
             <div class="date">
@@ -90,12 +90,12 @@
 
     <form id='formHebergement' class="" action="<?= URL ?>resultHebergement" method="post">
         <div class="search">
-<!--             
+            <!--             
             <input id="dateRetour" type="date" name="departureDateHebergement" placeholder="Date de départ" value="departureDateHebergement"> -->
-            <input required="" name = "departureDateHebergement" placeholder="Date de départ"  type="text" class="form-control" onfocus="(this.type='date')"/>
+            <input required="" name="departureDateHebergement" placeholder="Date de départ" type="text" class="form-control" onfocus="(this.type='date')" />
 
             <!-- <input id="dateRetour" type="date" name="returnDateHebergement" placeholder="returnDate" value="returnDateHebergement"> -->
-            <input required="" name = "returnDateHebergement" placeholder="Date de retour"  type="text" class="form-control" onfocus="(this.type='date')"/>
+            <input required="" name="returnDateHebergement" placeholder="Date de retour" type="text" class="form-control" onfocus="(this.type='date')" />
         </div>
         <div class="box">
             <div class="date">
