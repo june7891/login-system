@@ -189,7 +189,7 @@ class TripManager
             'CityNameHotel' => $CityNameHotel,
             'CountryNameHotel' => $CountryNameHotel,
             'imageHotel ' => $imageHotel,
-            'priceHotel' => $priceHotel,  
+            'priceHotel' => $priceHotel,
         );
 
 

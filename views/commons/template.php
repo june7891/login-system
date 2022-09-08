@@ -10,7 +10,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php URL ?>css/style.css">
 
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
@@ -22,9 +22,10 @@
     <link rel="stylesheet" type="text/css" href="css/cards.style.css">
     <link rel="stylesheet" type="text/css" href="css/advantages.style.css">
     <link rel="stylesheet" type="text/css" href="css/newsletter.style.css">
+    <link rel="stylesheet" type="text/css" href="css/resultSearchTrips.css">
     <link rel="stylesheet" type="text/css" href="css/about.style.css">
     <link rel="stylesheet" type="text/css" href="css/contact.style.css">
-   
+
 
 
     <title>Document</title>
@@ -33,7 +34,7 @@
 <body>
     <?php require_once("views/commons/header.php") ?>
     <div>
-    
+
         <?= $content ?>
     </div>
 

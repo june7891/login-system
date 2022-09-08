@@ -12,6 +12,9 @@ class TripController
         $this->tripManager = new TripManager();
     }
 
+    public function passageParam()
+    {
+    }
     public function getTripsByDepartureReturnPeople()
     {
         $departureDate =  $_POST['departureDateTrip'] ?? '';
@@ -24,7 +27,11 @@ class TripController
 
 
 
+
+
+        //
         // $JsonTripResult = json_encode($result,true);
         require_once './views/resultTrip.php';
+        require_once './views/resultsSearchTrips.php';
     }
 }
