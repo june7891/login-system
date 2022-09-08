@@ -6,6 +6,7 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" :
     "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
 $_SESSION["apikey"] = "X-RapidAPI-Key: dcaf319b7cmsh60561c7268d4e4ap1a2672jsna2615b3a92dd";
+$_SESSION["apikey"] = "X-RapidAPI-Key: db3c40c6c0msh03543ebbef04675p192b54jsn73a09cd91e0d";
 
 
 

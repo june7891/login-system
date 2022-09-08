@@ -80,11 +80,7 @@
 }
 .btn-valider-accueil {
   position: relative;
-  top: 40px;
-}
-
-.btn-valider-accueil {
-  float: right;
+  left: 500px;
 }
 
 .button button {
@@ -207,7 +203,9 @@
 }
 
 #filter {
+  position: relative;
   cursor: pointer;
+  left: 200px;
 }
 
 .budget input {
